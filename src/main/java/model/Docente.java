@@ -15,10 +15,12 @@ public class Docente extends Utente{
     public void InserisciMaterie(List<String> Materie_Ins){
         this.Materie_Ins=Materie_Ins;
     }
+
     //Aggiungo la singola materia che insegna il docente
     public void AddMateria(String Materia){
          this.Materie_Ins.add(Materia);
     }
+
     //Rimuove la singola materia dalla lista
     public void RemoveMateria(String Materia){
         this.Materie_Ins.remove(Materia);
