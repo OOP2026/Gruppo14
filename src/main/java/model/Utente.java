@@ -3,8 +3,11 @@ package model;
 import java.util.ArrayList;
 
 public class Utente {
-    private String login;
-    private String password;
+    protected String login;
+    protected String password;
+    protected String email;
+    protected String nome;
+    protected String cognome;
 
     public Utente(String login, String password) {
         this.login = login;
