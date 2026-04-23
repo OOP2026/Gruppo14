@@ -8,4 +8,7 @@ public class Studente extends Utente {
         super(login,password);
         this.Matricola=Matricola;
     }
+    public String getMatricola() {
+        return Matricola;
+    }
 }
