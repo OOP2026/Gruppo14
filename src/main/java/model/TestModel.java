@@ -6,16 +6,16 @@ import java.util.List;
 public class TestModel {
 
 	public static void main(String[] args) {
-		Utente u = new Utente("topolino","minni");
+		Utente u = new Utente("topolino","minni","topolinomeail","Michey","Mouse");
 		System.out.println(u.login("pippo","pluto"));
 		System.out.println(u.login("topolino","minni"));
 		//Test studente
-		Studente studente1 = new Studente("mario.rossi", "pass123", "100200300");
+		Studente studente1 = new Studente("mario.rossi", "pass123", "100200300","studmail@","Mario","Rossi");
 		System.out.println(studente1.login("mario rossi","pass123"));
 		System.out.println(studente1.getMatricola());
 
 		//Test docente
-		Docente prof1 = new Docente("luigi.bianchi", "profpass");
+		Docente prof1 = new Docente("luigi.bianchi", "profpass","profmail@","Luigi","Bianchi");
 		prof1.AddMateria("Analisi Matematica 1");
 		prof1.AddMateria("Fisica Generale");
 		prof1.AddMateria("Informatica");
@@ -27,6 +27,11 @@ public class TestModel {
 		nuoveMaterie.add("Reti di Calcolatori");
 		prof1.InserisciMaterie(nuoveMaterie);
 		System.out.println("Info Prof Finali: " + prof1.geTMaterieInsegnate());
+
+		//Test resp
+		Utente r1=new Responsabile("Luca.rossi","resppass","respmail@","Luca","Rossi");
+		System.out.println(r1.login("Luca.rossi","resppass"));
+
 	}
 
 }

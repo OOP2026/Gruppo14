@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 public class Docente extends Utente{
     private List<String> Materie_Ins;
-    public Docente (String login, String password){
+    public Docente (String login, String password,String email, String nome, String cognome){
         //Chiamo il costruttore di utente
-        super(login,password);
+        super(login,password,email,nome,cognome);
         this.Materie_Ins = new ArrayList<>();
     }
     public List<String> geTMaterieInsegnate(){
