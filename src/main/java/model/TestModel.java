@@ -32,6 +32,22 @@ public class TestModel {
 		Utente r1=new Responsabile("Luca.rossi","resppass","respmail@","Luca","Rossi");
 		System.out.println(r1.login("Luca.rossi","resppass"));
 
+		//Test Lezione
+		Lezione lez=new Lezione("Metodi Matematici","Mercoledi","17:00","19:00","A8");
+		System.out.println("La lezione di "+lez.giornoSettimana+" di "+lez.insegnamento+
+				" inizia alle ore "+lez.oraInizio+" e finisce alle "+lez.oraFine+"." );
+
+		//Test Oraio
+		List<Lezione> lezioni=new ArrayList<>();
+		Lezione Lezione1=new Lezione("Fisica","Lunedì","9:00","11:00","B3");
+		Lezione Lezione2=new Lezione("Matematica","Lunedi","11:00","13:00","B4");
+		Lezione Lezione3=new Lezione("Basi di Dati","Lunedì","14:00","16:00","B3");
+		lezioni.add(Lezione1);
+		lezioni.add(Lezione2);
+		lezioni.add(Lezione3);
+		Orario Lunedi=new Orario(lezioni);
+		System.out.println("Orario:"+Lunedi);
+
 	}
 
 }
