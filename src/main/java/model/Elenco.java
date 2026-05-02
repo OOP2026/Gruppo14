@@ -23,5 +23,8 @@ public class Elenco {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return nomeInsegnamento+"  CFU:"+ cfu+" Anno di corso:"+ anno +" Docente " +docente_Titolare+".";
+    }
 }

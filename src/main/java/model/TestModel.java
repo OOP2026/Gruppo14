@@ -29,8 +29,30 @@ public class TestModel {
 		System.out.println("Info Prof Finali: " + prof1.geTMaterieInsegnate());
 
 		//Test resp
-		Utente r1=new Responsabile("Luca.rossi","resppass","respmail@","Luca","Rossi");
+		Responsabile r1=new Responsabile("Luca.rossi","resppass","respmail@","Luca","Rossi");
 		System.out.println(r1.login("Luca.rossi","resppass"));
+		//Parte necessaria per definire gli insegnamenti attivi
+		List<Elenco> InseAttivi=new ArrayList<>();
+		List<String> Auledisp1=new ArrayList<>();
+		List<String> Auledisp2=new ArrayList<>();
+		Auledisp1.add("A6");
+		Auledisp1.add("B4");
+		Auledisp2.add("B3");
+		Auledisp2.add("B5");
+
+		Elenco primo=new Elenco("Matematica",8,1,"Luca rossi",Auledisp1);
+		Elenco secondo=new Elenco("Fisica",6,2,"Gaetano Accardo",Auledisp2);
+		InseAttivi.add(primo);
+		InseAttivi.add(secondo);
+		//Controllo se l'elenco di insegnamenti attivi è stato definito.
+		System.out.println(r1.isDefinito());
+		System.out.println(r1.definisci(InseAttivi));
+		System.out.println(r1.isDefinito());
+		//Crea lezione di responsabile
+		r1.creaLezione("Matematica","Lunedi","11:00","13:00","B4");
+		r1.creaLezione("Algebra","Giovedì","14:00","16:00","A1");
+			
+
 
 		//Test Lezione
 		Lezione lez=new Lezione("Metodi Matematici","Mercoledi","17:00","19:00","A8");
@@ -45,6 +67,7 @@ public class TestModel {
 		lezioni.add(Lezione1);
 		lezioni.add(Lezione2);
 		lezioni.add(Lezione3);
+
 		Orario Lunedi=new Orario(lezioni);
 		System.out.println("Orario:"+Lunedi);
 
