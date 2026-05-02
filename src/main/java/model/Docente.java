@@ -1,6 +1,7 @@
 package model;
 import java.util.ArrayList;
 import java.util.List;
+
 public class Docente extends Utente{
     private List<String> Materie_Ins;
     public Docente (String login, String password,String email, String nome, String cognome){
@@ -24,6 +25,19 @@ public class Docente extends Utente{
     //Rimuove la singola materia dalla lista
     public void RemoveMateria(String Materia){
         this.Materie_Ins.remove(Materia);
+    }
+
+    public Spostamento_Lezione richiediSpostamento(String orarioIniziale, String giornoIniziale,
+                                                   String orarioProposto, String giornoProposto,
+                                                   Responsabile responsabile) {
+        Spostamento_Lezione richiesta = new Spostamento_Lezione(
+                orarioIniziale, giornoIniziale,
+                orarioProposto, giornoProposto,
+                this // passa se stesso come richiedente
+        );
+        responsabile.riceviRichiesta(richiesta);
+        System.out.println("Richiesta inoltrata a " + responsabile.nome);
+        return richiesta;
     }
 
 }

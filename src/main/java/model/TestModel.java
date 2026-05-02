@@ -10,7 +10,7 @@ public class TestModel {
 		System.out.println(u.login("pippo","pluto"));
 		System.out.println(u.login("topolino","minni"));
 		//Test studente
-		Studente studente1 = new Studente("mario.rossi", "pass123", "100200300","studmail@","Mario","Rossi");
+		Studente studente1 = new Studente("mario.rossi", "pass123", "100200300","studmail@","Mario","Rossi",1,"Informaticà");
 		System.out.println(studente1.login("mario rossi","pass123"));
 		System.out.println(studente1.getMatricola());
 
@@ -51,7 +51,7 @@ public class TestModel {
 		//Crea lezione di responsabile
 		r1.creaLezione("Matematica","Lunedi","11:00","13:00","B4");
 		r1.creaLezione("Algebra","Giovedì","14:00","16:00","A1");
-			
+		System.out.println("Lezione Creata: "+r1.creaLezione("Matematica","Lunedi","11:00","13:00","B4"));
 
 
 		//Test Lezione
@@ -68,8 +68,20 @@ public class TestModel {
 		lezioni.add(Lezione2);
 		lezioni.add(Lezione3);
 
-		Orario Lunedi=new Orario(lezioni);
+		Orario Lunedi=new Orario(lezioni,"Informatica",1);
 		System.out.println("Orario:"+Lunedi);
+		//Test visualizza orario
+		System.out.println(studente1.visualizzaOrario(Lunedi,1,"Informatica"));
+		studente1.visualizzaOrario(Lunedi,2,"Ingegneria Informatica");
+		//Richieste di spostamento
+		Spostamento_Lezione rich1=prof1.richiediSpostamento("14:00","27/04/2026","10:00","28/04/2026",r1);
+		Spostamento_Lezione rich2=new Spostamento_Lezione("14:00","27/04/2026","10:00","28/04/2026",prof1);
+
+		System.out.println(r1.visualizzaRichieste());
+		//Approva richiesta
+		r1.approvaRichiesta(rich1);
+		r1.rifiutaRichiesta(rich2);
+
 
 	}
 

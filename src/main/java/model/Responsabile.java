@@ -2,7 +2,8 @@ package model;
 import java.util.*;
 public class Responsabile extends Utente {
     List<Elenco> InsegnAttivo;
-
+    //richiesta in attesa
+    private List<Spostamento_Lezione> listarichieste = new ArrayList<>();
     public  Responsabile(String login, String password, String email, String nome, String cognome){
         super(login,password,email,nome,cognome);
 
@@ -44,7 +45,36 @@ public class Responsabile extends Utente {
         // Crea e restituisce la lezione
         return new Lezione(insegnamento, giornoSettimana, oraInizio, oraFine, aula);
     }
+    //Riceve la richiesta
+    public void riceviRichiesta(Spostamento_Lezione richiesta) {
+        listarichieste.add(richiesta);
+        System.out.println("Richiesta ricevuta: " + richiesta);
+    }
+    //Approva la richiesta
+    public void approvaRichiesta(Spostamento_Lezione richiesta) {
+        if (listarichieste.contains(richiesta)) {
+            richiesta.setStato(Spostamento_Lezione.Stato.approvata);
+            listarichieste.remove(richiesta);
+            System.out.println("Richiesta approvata: " + richiesta);
+        } else {
+            System.out.println("Richiesta non trovata.");
+        }
+    }
 
+    // Rifiuta la richiesta
+    public void rifiutaRichiesta(Spostamento_Lezione richiesta) {
+        if (listarichieste.contains(richiesta)) {
+            richiesta.setStato(Spostamento_Lezione.Stato.rifiutata);
+            listarichieste.remove(richiesta);
+            System.out.println("Richiesta rifiutata: " + richiesta);
+        } else {
+            System.out.println("Richiesta non trovata.");
+        }
+    }
+
+    public List<Spostamento_Lezione> visualizzaRichieste() {
+        return listarichieste;
+    }
     @Override
     public String toString() {
         return InsegnAttivo.toString();

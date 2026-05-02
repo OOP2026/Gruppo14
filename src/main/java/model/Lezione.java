@@ -1,6 +1,8 @@
 package model;
 
 
+import java.util.Date;
+
 public class Lezione {
 	String insegnamento;
 	String giornoSettimana;
