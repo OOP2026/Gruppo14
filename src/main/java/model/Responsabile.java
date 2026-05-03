@@ -75,6 +75,20 @@ public class Responsabile extends Utente {
     public List<Spostamento_Lezione> visualizzaRichieste() {
         return listarichieste;
     }
+
+    //Visualizza conflitti di Responsabile
+    public void visualizzaConflitti(Orario orario) {
+        List<String> conflitti = orario.verificaConflitti();
+
+        if (conflitti.isEmpty()) {
+            System.out.println("Nessun conflitto rilevato nell'orario.");
+        } else {
+            System.out.println("=== CONFLITTI RILEVATI (" + conflitti.size() + ") ===");
+            for (String c : conflitti) {
+                System.out.println("  - " + c);
+            }
+        }
+    }
     @Override
     public String toString() {
         return InsegnAttivo.toString();

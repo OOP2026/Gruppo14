@@ -50,7 +50,7 @@ public class TestModel {
 		System.out.println(r1.definisci(InseAttivi));
 		System.out.println(r1.isDefinito());
 		//Crea lezione di responsabile
-		
+
 		r1.creaLezione("Algebra","Giovedì","14:00","16:00","A1",prof2);
 		System.out.println("Lezione Creata: "+r1.creaLezione("Matematica","Lunedi","11:00","13:00","B4",prof2));
 
@@ -89,6 +89,19 @@ public class TestModel {
 		// Il docente visualizza solo le sue lezioni
 		List<Lezione> lezioniMie = prof1.vediLezione(orarioCompleto);
 		System.out.println("Lezioni di " + prof1.nome + ": " + lezioniMie);
+
+		//Test vedi conflitti di Responsabile
+		Lezione L1 = new Lezione("Fisica",    "Lunedì", "9:00", "11:00", "B3", prof1);
+		Lezione L2 = new Lezione("Matematica","Lunedì", "9:00", "11:00", "B3", prof1); // conflitto aula + docente
+		Lezione L3 = new Lezione("Chimica",   "Lunedì","10:00", "12:00", "A1", prof1); // conflitto docente con L1
+
+		List<Lezione> lezioniTest = new ArrayList<>();
+		lezioniTest.add(L1);
+		lezioniTest.add(L2);
+		lezioniTest.add(L3);
+
+		Orario orarioTest = new Orario(lezioniTest, "Informatica", 1);
+		r1.visualizzaConflitti(orarioTest);
 
 	}
 
