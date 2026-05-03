@@ -13,17 +13,17 @@ public class Docente extends Utente{
         return Materie_Ins;
     }
     //Metodo per aggiungere l'intera lista di materie insegnate di un docente
-    public void InserisciMaterie(List<String> Materie_Ins){
+    public void inserisciMaterie(List<String> Materie_Ins){
         this.Materie_Ins=Materie_Ins;
     }
 
     //Aggiungo la singola materia che insegna il docente
-    public void AddMateria(String Materia){
+    public void addMateria(String Materia){
          this.Materie_Ins.add(Materia);
     }
 
     //Rimuove la singola materia dalla lista
-    public void RemoveMateria(String Materia){
+    public void removeMateria(String Materia){
         this.Materie_Ins.remove(Materia);
     }
 
