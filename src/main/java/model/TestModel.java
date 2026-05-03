@@ -76,8 +76,8 @@ public class TestModel {
 		studente1.visualizzaOrario(Lunedi,2,"Ingegneria Informatica");
 		//Richieste di spostamento
 		Spostamento_Lezione rich1=prof1.richiediSpostamento("14:00","27/04/2026","10:00","28/04/2026",r1);
-		Spostamento_Lezione rich2=new Spostamento_Lezione("14:00","27/04/2026","10:00","28/04/2026",prof1);
-
+		Spostamento_Lezione rich2=new Spostamento_Lezione("14:00","27/04/2026","10:00","28/04/2026",prof2);
+		r1.riceviRichiesta(rich2);
 		System.out.println(r1.visualizzaRichieste());
 		//Approva richiesta
 		r1.approvaRichiesta(rich1);

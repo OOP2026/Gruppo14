@@ -50,10 +50,11 @@ public class Responsabile extends Utente {
         listarichieste.add(richiesta);
         System.out.println("Richiesta ricevuta: " + richiesta);
     }
+
     //Approva la richiesta
     public void approvaRichiesta(Spostamento_Lezione richiesta) {
         if (listarichieste.contains(richiesta)) {
-            richiesta.setStato(Spostamento_Lezione.Stato.approvata);
+            richiesta.stato = Spostamento_Lezione.Stato.approvata;
             listarichieste.remove(richiesta);
             System.out.println("Richiesta approvata: " + richiesta);
         } else {
@@ -64,7 +65,7 @@ public class Responsabile extends Utente {
     // Rifiuta la richiesta
     public void rifiutaRichiesta(Spostamento_Lezione richiesta) {
         if (listarichieste.contains(richiesta)) {
-            richiesta.setStato(Spostamento_Lezione.Stato.rifiutata);
+            richiesta.stato = Spostamento_Lezione.Stato.rifiutata;
             listarichieste.remove(richiesta);
             System.out.println("Richiesta rifiutata: " + richiesta);
         } else {

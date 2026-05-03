@@ -15,14 +15,9 @@ public class Spostamento_Lezione {
         this.giornoProposto=giornoProposto;
         this.richiedente=richiedente;
         this.stato=Stato.inAttesa;
-    }
-    Spostamento_Lezione(){
 
     }
 
-    //stato
-    public Stato getStato() { return stato; }
-    public void setStato(Stato stato) { this.stato = stato; }
 
     @Override
     public String toString() {

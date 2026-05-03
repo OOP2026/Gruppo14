@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Utente {
     protected String login;
     protected String password;
