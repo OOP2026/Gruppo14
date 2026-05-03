@@ -16,6 +16,7 @@ public class TestModel {
 
 		//Test docente
 		Docente prof1 = new Docente("luigi.bianchi", "profpass","profmail@","Luigi","Bianchi");
+		Docente prof2= new  Docente ("Paolo.rossi","profpass2","prof2mail@","Paolo","Rossi");
 		prof1.AddMateria("Analisi Matematica 1");
 		prof1.AddMateria("Fisica Generale");
 		prof1.AddMateria("Informatica");
@@ -49,21 +50,21 @@ public class TestModel {
 		System.out.println(r1.definisci(InseAttivi));
 		System.out.println(r1.isDefinito());
 		//Crea lezione di responsabile
-		r1.creaLezione("Matematica","Lunedi","11:00","13:00","B4");
-		r1.creaLezione("Algebra","Giovedì","14:00","16:00","A1");
-		System.out.println("Lezione Creata: "+r1.creaLezione("Matematica","Lunedi","11:00","13:00","B4"));
+		
+		r1.creaLezione("Algebra","Giovedì","14:00","16:00","A1",prof2);
+		System.out.println("Lezione Creata: "+r1.creaLezione("Matematica","Lunedi","11:00","13:00","B4",prof2));
 
 
 		//Test Lezione
-		Lezione lez=new Lezione("Metodi Matematici","Mercoledi","17:00","19:00","A8");
+		Lezione lez=new Lezione("Metodi Matematici","Mercoledi","17:00","19:00","A8",prof1);
 		System.out.println("La lezione di "+lez.giornoSettimana+" di "+lez.insegnamento+
 				" inizia alle ore "+lez.oraInizio+" e finisce alle "+lez.oraFine+"." );
 
 		//Test Oraio
 		List<Lezione> lezioni=new ArrayList<>();
-		Lezione Lezione1=new Lezione("Fisica","Lunedì","9:00","11:00","B3");
-		Lezione Lezione2=new Lezione("Matematica","Lunedi","11:00","13:00","B4");
-		Lezione Lezione3=new Lezione("Basi di Dati","Lunedì","14:00","16:00","B3");
+		Lezione Lezione1=new Lezione("Fisica","Lunedì","9:00","11:00","B3",prof1);
+		Lezione Lezione2=new Lezione("Matematica","Lunedi","11:00","13:00","B4",prof1);
+		Lezione Lezione3=new Lezione("Basi di Dati","Lunedì","14:00","16:00","B3",prof1);
 		lezioni.add(Lezione1);
 		lezioni.add(Lezione2);
 		lezioni.add(Lezione3);
@@ -82,6 +83,12 @@ public class TestModel {
 		r1.approvaRichiesta(rich1);
 		r1.rifiutaRichiesta(rich2);
 
+		//Test vedi lezione di docente
+		Orario orarioCompleto = new Orario(lezioni, "Informatica", 1);
+
+		// Il docente visualizza solo le sue lezioni
+		List<Lezione> lezioniMie = prof1.vediLezione(orarioCompleto);
+		System.out.println("Lezioni di " + prof1.nome + ": " + lezioniMie);
 
 	}
 

@@ -20,7 +20,7 @@ public class Responsabile extends Utente {
     }
 
     public Lezione creaLezione(String insegnamento, String giornoSettimana,
-                               String oraInizio, String oraFine, String aula) {
+                               String oraInizio, String oraFine, String aula,Docente docAssegnato) {
 
         // Controlla se l'elenco è stato definito
         if (!isDefinito()) {
@@ -43,7 +43,7 @@ public class Responsabile extends Utente {
         }
 
         // Crea e restituisce la lezione
-        return new Lezione(insegnamento, giornoSettimana, oraInizio, oraFine, aula);
+        return new Lezione(insegnamento, giornoSettimana, oraInizio, oraFine, aula,docAssegnato);
     }
     //Riceve la richiesta
     public void riceviRichiesta(Spostamento_Lezione richiesta) {

@@ -40,4 +40,21 @@ public class Docente extends Utente{
         return richiesta;
     }
 
+    //Vedi lezione del docente.
+    public List<Lezione> vediLezione(Orario orario) {
+        List<Lezione> lezioniDocente = new ArrayList<>();
+
+        for (Lezione lezione : orario.orari) {
+            if (lezione.docAssegnato == this) {  // confronto per riferimento
+                lezioniDocente.add(lezione);
+            }
+        }
+
+        if (lezioniDocente.isEmpty()) {
+            System.out.println("Nessuna lezione trovata per " + this.nome + " " + this.cognome);
+        }
+
+        return lezioniDocente;
+    }
+
 }
