@@ -13,7 +13,7 @@ public class Studente extends Utente {
         this.annoDiCorso=annoDiCorso;
         this.facolta=facolta;
     }
-    public String getMatricola() {
+    protected String getMatricola() {
         return Matricola;
     }
 
