@@ -13,7 +13,7 @@ public class Insegnamento {
 		this.docenteTitolare=docenteTitolare;
 		this.attivo=attivo;
 	}
-	boolean isAttivo() {
+	public boolean isAttivo() {
 		return this.attivo;
 	};
 }
