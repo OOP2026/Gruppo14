@@ -14,7 +14,6 @@ public class Insegnamento {
     }
 
     public boolean isAttivo() {
-        // Logica per verificare se l'insegnamento è attivo
         return true;
     }
 
