@@ -6,7 +6,7 @@ public class ResponsabileOrari extends Utente {
 		super(nome,cognome,email,password);
 	}
 	public boolean definisceInsegnamento(Insegnamento i) {
-		if(i.nome==null || i.numeroCFU<0 || i.docenteTitolare==null || i.annoCorso==null) {
+		if(i.nome==null ||nome.trim().isEmpty()|| i.numeroCFU<=0 || i.docenteTitolare==null || i.annoCorso==null) {
 			System.out.println("Errore!!! valori non validi");
 			return false;
 		}
@@ -16,5 +16,26 @@ public class ResponsabileOrari extends Utente {
 	 System.out.println("Insegnamento '" + nome + "' definito con successo e assegnato al Prof. " + i.docenteTitolare.getCognome());
      return true;
  }
+	public boolean inserisceAula(Aula a,List<Aula>elencoAule) {
+		if(a==null) {
+			System.out.println("Errore! aula non valida");
+			return false;
+		}
+		for (Aula a2 : elencoAule) {
+            if (a2.getNomeAula().equalsIgnoreCase(a.getNomeAula())) {
+                System.out.println("Errore: L'aula " + a.getNomeAula() + " è già presente nel sistema.");
+                return false;
+            }
+        }
+		elencoAule.add(a);
+		System.out.println("Aula"+a.getNomeAula()+"inserita con successo!!");
+		return true;
 	}
-}
+	public boolean creaLezione(Lezione l,List<Lezione>elencoLezioni) {
+		if(l==null) {
+			return false;
+		}
+		elencoLezioni.add(l);
+		return true;
+	}
+	}
