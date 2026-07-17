@@ -13,11 +13,22 @@ public Utente(String nome,String cognome,String email,String password,String use
 	this.password=password;
 	this.username=username;
 }
-public boolean toLogin(String email,String password) {
+public boolean login(String email,String password) {
 	if (this.email.equals(email) && this.password.equals(password)) {
         return true;
     } else {
         return false;
     }
+}
+public void visualizzaOrario(Orario orarioGenerale) {
+	if(orarioGenerale==null || orarioGenerale.getListaLezione().isEmpty()) {
+		System.out.println("Orario non disponibile o non programmato!");
+	}
+	System.out.println("Orario delle lezioni:");
+	for(Lezione l:orarioGenerale.getListaLezione()) {
+		System.out.println("Materia" +l.getInsegnamento());
+		System.out.println("Giorno" + l.getGiorno());
+		System.out.println("Ora inizio:" +l.getOraInizio() + "-" + l.getOraFine());
+	}
 }
 }
