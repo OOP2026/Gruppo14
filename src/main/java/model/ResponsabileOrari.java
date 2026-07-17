@@ -1,41 +1,23 @@
 package Progetto;
-import java.util.List;
 import java.util.ArrayList;
-public class ResponsabileOrari extends Utente {
-	public ResponsabileOrari(String nome,String cognome,String email,String password,String username) {
-		super(nome,cognome,email,password,username);
-	}
-	public boolean definisceInsegnamento(Insegnamento i) {
-		if(i.nome==null ||nome.trim().isEmpty()|| i.numeroCFU<=0 || i.docenteTitolare==null || i.annoCorso==null) {
-			System.out.println("Errore!!! valori non validi");
-			return false;
-		}
-	 Insegnamento nuovoInsegnamento=new Insegnamento(i.nome,i.numeroCFU,i.annoCorso,i.docenteTitolare);
-	 List<Insegnamento>listaInsegnamenti=new ArrayList<>();
-	 listaInsegnamenti.add(nuovoInsegnamento);
-	 System.out.println("Insegnamento '" + nome + "' definito con successo e assegnato al Prof. " + i.docenteTitolare.getCognome());
-     return true;
- }
-	public boolean inserisceAula(Aula a,List<Aula>elencoAule) {
-		if(a==null) {
-			System.out.println("Errore! aula non valida");
-			return false;
-		}
-		for (Aula a2 : elencoAule) {
-            if (a2.getNomeAula().equalsIgnoreCase(a.getNomeAula())) {
-                System.out.println("Errore: L'aula " + a.getNomeAula() + " è già presente nel sistema.");
-                return false;
-            }
-        }
-		elencoAule.add(a);
-		System.out.println("Aula"+a.getNomeAula()+"inserita con successo!!");
-		return true;
-	}
-	public boolean creaLezione(Lezione l,List<Lezione>elencoLezioni) {
-		if(l==null) {
-			return false;
-		}
-		elencoLezioni.add(l);
-		return true;
-	}
-	}
+import java.util.List;
+public class ResponsabileOrari extends Utente{
+public ResponsabileOrari(String nome,String cognome,String email,String password,String username) {
+super(nome,cognome,email,password,username);
+}
+public boolean definisceInsegnamento(Insegnamento i,List<Insegnamento> listaGlobale) {
+	if (i.nome == null || i.nome.trim().isEmpty() || i.numeroCFU <= 0 || i.docenteTitolare == null || i.annoCorso == null) {
+        System.out.println("Errore: Dati dell'insegnamento non validi o incompleti.");
+        return false;
+    }
+    
+    // 2. Creazione dell'istanza (Oggetto reale) sfruttando l'associazione
+    Insegnamento nuovoInsegnamento = new Insegnamento(i.nome,i.numeroCFU,i.annoCorso,i.docenteTitolare);
+    
+    // 3. Aggiunta alla lista centralizzata del sistema
+    listaGlobale.add(nuovoInsegnamento);
+    
+    System.out.println("Insegnamento '" + i.nome + "' definito con successo e assegnato al Prof. " + i.docenteTitolare.getCognome());
+    return true;
+}
+}
