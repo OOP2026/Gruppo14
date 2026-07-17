@@ -2,8 +2,8 @@ package Progetto;
 import java.util.List;
 import java.util.ArrayList;
 public class ResponsabileOrari extends Utente {
-	public ResponsabileOrari(String nome,String cognome,String email,String password) {
-		super(nome,cognome,email,password);
+	public ResponsabileOrari(String nome,String cognome,String email,String password,String username) {
+		super(nome,cognome,email,password,username);
 	}
 	public boolean definisceInsegnamento(Insegnamento i) {
 		if(i.nome==null ||nome.trim().isEmpty()|| i.numeroCFU<=0 || i.docenteTitolare==null || i.annoCorso==null) {
