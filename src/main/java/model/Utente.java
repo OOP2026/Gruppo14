@@ -4,7 +4,7 @@ public class Utente {
 public String nome;
 public String cognome;
 public String email;
-protected String password;
+private String password;
 public String username;
 public Utente(String nome,String cognome,String email,String password,String username) {
 	this.nome=nome;
