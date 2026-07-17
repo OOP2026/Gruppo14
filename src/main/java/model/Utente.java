@@ -21,11 +21,11 @@ public boolean login(String email,String password) {
     }
 }
 public void visualizzaOrario(Orario orarioGenerale) {
-	if(orarioGenerale==null || orarioGenerale.getListaLezione().isEmpty()) {
+	if(orarioGenerale==null || orarioGenerale.getListaLezioni().isEmpty()) {
 		System.out.println("Orario non disponibile o non programmato!");
 	}
 	System.out.println("Orario delle lezioni:");
-	for(Lezione l:orarioGenerale.getListaLezione()) {
+	for(Lezione l:orarioGenerale.getListaLezioni()) {
 		System.out.println("Materia" +l.getInsegnamento());
 		System.out.println("Giorno" + l.getGiorno());
 		System.out.println("Ora inizio:" +l.getOraInizio() + "-" + l.getOraFine());
