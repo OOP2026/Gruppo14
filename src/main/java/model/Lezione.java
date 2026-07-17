@@ -13,4 +13,16 @@ public class Lezione {
 		this.oraFine=oraFine;
 		this.aulaAssegnata=aulaAssegnata;
 	}
+	public Insegnamento getInsegnamento() {
+		return insegnamento;
+	}
+	public giornoSettimana getGiorno() {
+		return giorno;
+	}
+	public LocalTime getOraInizio() {
+		return oraInizio;
+	}
+	public LocalTime getOraFine() {
+		return oraFine;
+	}
 }
