@@ -5,7 +5,7 @@ import java.util.List;
 public class RichiestaSpostamento {
     // Gli attributi che hai già messo
     public giornoSettimana giornoLezione;
-    public String orarioLezione;
+    public LocalTime orarioLezione;
     
     // Le associazioni: i puntatori agli oggetti coinvolti
     public ResponsabileOrari responsabileDestinatario;
@@ -13,9 +13,18 @@ public class RichiestaSpostamento {
     
     // Ecco la traduzione della linea che hai appena aggiunto verso Lezione
     public Lezione lezioneDaSpostare; 
+    
+    /**
+     * Costruttore della classe RichiestaSpostamento:
+     * @param giornoLezione
+     * @param orarioLezione
+     * @param responsabile
+     * @param docente
+     * @param lezione
+     */
 
     // Aggiorna il costruttore per includere la lezione
-    public RichiestaSpostamento(giornoSettimana giornoLezione, String orarioLezione, 
+    public RichiestaSpostamento(giornoSettimana giornoLezione, LocalTime orarioLezione, 
                                 ResponsabileOrari responsabile, Docente docente, Lezione lezione) {
         this.giornoLezione = giornoLezione;
         this.orarioLezione = orarioLezione;
@@ -23,6 +32,11 @@ public class RichiestaSpostamento {
         this.docenteRichiedente = docente;
         this.lezioneDaSpostare = lezione; // Assegnazione della relazione
     }
+    
+    /**
+     * Ottiene la lezione da spostare 
+     * @return lezioneDaSpostare
+     */
 
     public Lezione getLezioneDaSpostare() {
         return lezioneDaSpostare;
