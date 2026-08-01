@@ -1,11 +1,12 @@
 package Progetto;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
 public class ResponsabileOrari extends Utente{
 /**
 *Il costruttore della classe ResponsabileOrari non ha alcun attributo ed eredita tutti gli attributi ed alcuni metodi della sua superclasse Utente.
  */
-public ResponsabileOrari(String nome,String cognome,String email,String password,String username) {
+public ResponsabileOrari(String nome,String cognome,HashSet<String> email,String password,String username) {
 super(nome,cognome,email,password,username);
 }
 /**

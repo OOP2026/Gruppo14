@@ -1,6 +1,4 @@
 package Progetto;
-import java.util.List;
-import java.util.ArrayList;
 /**
  * Rappresenta un'aula universitaria all'interno dell'ateneo:
  * <br>gestisce l'identificativo dell'aula e l'elenco delle lezioni ospitate</br>
@@ -19,7 +17,6 @@ public class Aula {
      */
     public Aula(String nomeAula) {
 		this.nomeAula=nomeAula;
-		this.lezione=lezione;
 	}
     /**
      * Restituisce il nome dell'aula.

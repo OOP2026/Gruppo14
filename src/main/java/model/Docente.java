@@ -1,6 +1,7 @@
 package Progetto;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.*;
 /**
  * Rappresenta un <b>Docente</b> all'interno dell'ateneo
  */
@@ -25,7 +26,7 @@ public class Docente extends Utente {
 	 * @param responsabile
 	 * @param lezioni
 	 */
-	public Docente(String nome,String cognome,String email,String password,String username,ArrayList<Insegnamento>insegnamento,ResponsabileOrari responsabile,ArrayList<Lezione> lezioni) {
+	public Docente(String nome,String cognome,HashSet<String> email,String password,String username,ArrayList<Insegnamento>insegnamento,ResponsabileOrari responsabile,ArrayList<Lezione> lezioni) {
 		super(nome,cognome,email,password,username);
 		this.insegnamento=new ArrayList<>();
 		this.responsabile=responsabile;
