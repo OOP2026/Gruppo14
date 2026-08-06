@@ -1,5 +1,4 @@
 package Progetto;
-
 public enum GiornoSettimana {
 	LUNEDI,
 	MARTEDI,
@@ -7,3 +6,4 @@ public enum GiornoSettimana {
 	GIOVEDI,
 	VENERDI
 }
+
