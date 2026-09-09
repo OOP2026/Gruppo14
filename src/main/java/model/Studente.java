@@ -4,6 +4,7 @@ public class Studente extends Utente {
 String matricola;
 AnnoCorso annoDiCorso;
 String facoltà;
+Orario o;
 /**
  * Costruttore della classe Studente:
  * @param matricola
@@ -24,7 +25,7 @@ String facoltà;
 	 * @param o
 	 * @return o
 	 */
-	public Orario visualizzaOrario(Orario o) {
+	public Orario visualizzaOrario() {
 		return o;
 	}
 

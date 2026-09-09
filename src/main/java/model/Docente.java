@@ -1,6 +1,8 @@
 package Progetto;
 import java.util.*;
 public class Docente extends Utente {
+	
+
 	private List<SpostamentoLezione> richiesteSpostamento;
 	private List<Lezione> lezioni;                         // Relazione 1 a 1..* con Lezione (TIENE)
     private Aula aulaAssociata;                            // Relazione 1 a 1 con Aula (TIENE)
@@ -39,7 +41,7 @@ public class Docente extends Utente {
         return richiesteSpostamento;
     }
 
-    public List<Lezione> getLezioni() {
+	public List<Lezione> getLezioni() {
         return lezioni;
     }
 
@@ -50,4 +52,9 @@ public class Docente extends Utente {
     public void setAulaAssociata(Aula aulaAssociata) {
         this.aulaAssociata = aulaAssociata;
     }
+    @Override
+   	public String toString() {
+   		return "Docente [richiesteSpostamento=" + richiesteSpostamento + ", lezioni=" + lezioni + ", aulaAssociata="
+   				+ aulaAssociata + "]";
+   	}
 }

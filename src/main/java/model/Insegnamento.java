@@ -85,5 +85,10 @@ ArrayList<Lezione> l=new ArrayList<>();
     public String getNomeIns() {
     	return nomeIns;
     }
+    @Override
+	public String toString() {
+		return "Insegnamento [nomeIns=" + nomeIns + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine
+				+ ", attivoManuale=" + attivoManuale + ", d=" + d + ", CFU=" + CFU + ", l=" + l + "]";
+	}
 }
 

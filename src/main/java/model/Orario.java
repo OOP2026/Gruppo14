@@ -4,7 +4,6 @@ import java.time.*;
 public class Orario {
 Insegnamento corso;
 AnnoCorso anno;
-ArrayList<Lezione> lezioni;
 GiornoSettimana giorno;
 LocalTime inizio;
 LocalTime fine;
@@ -21,10 +20,9 @@ Aula aula;
  * @param d
  * @param a
  */
-	public Orario(Insegnamento corso,AnnoCorso anno,Lezione l,GiornoSettimana g,LocalTime i,LocalTime f,Docente d,Aula a) {
+	public Orario(Insegnamento corso,AnnoCorso anno,GiornoSettimana g,LocalTime i,LocalTime f,Docente d,Aula a) {
 		this.corso=corso;
 		this.anno=anno;
-		this.lezioni.add(l);
 		this.giorno=g;
 		this.inizio=i;
 		this.fine=f;
@@ -60,6 +58,10 @@ Aula aula;
          */
         return this.docente.equals(altraLez.getDocente()) || this.aula.equals(altraLez.getAula());
     }
+	@Override
+	public String toString() {
+		return "Orario [corso=" + corso.getNomeIns() + ", anno=" + anno + "]";
+	}
 	}
 
 

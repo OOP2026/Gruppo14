@@ -1,7 +1,7 @@
 package Progetto;
 public class Aula {
 
-    // Attributo dal Class Diagram
+	// Attributo dal Class Diagram
     private String nomeAula;
 
     // Relazione OSPITA (molteplicità 0..1 con Lezione)
@@ -33,6 +33,16 @@ public class Aula {
 
     // Metodo di utilità per verificare se l'aula è libera
     public boolean isLibera() {
-        return this.lezioneOspitata == null;
+        if(this.lezioneOspitata==null) {
+        	return true;
+        }
+        else {
+        	return false;
+        }
     }
+    @Override
+   	public String toString() {
+   		return "Aula [nomeAula=" + nomeAula + ", lezioneOspitata=" + lezioneOspitata + "]";
+   	}
+
 }

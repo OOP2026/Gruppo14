@@ -25,7 +25,7 @@ private Orario o;
 		this.aula=a;
 		this.d=d;
 		this.r=r;
-		this.o=o;		// TODO Auto-generated constructor stub
+		this.o=o;// TODO Auto-generated constructor stub
 	}
 	/**
 	 * Restituisce l'insegnamento cui si riferisce
@@ -78,6 +78,11 @@ private Orario o;
 	 */
 	public Orario getOrario() {
 		return o;
+	}
+	@Override
+	public String toString() {
+		return "Lezione [giorno=" + giorno + ", oraInizio=" + oraInizio + ", oraFine=" + oraFine + ", insegnamento="
+				+(insegnamento!=null ?insegnamento.getNomeIns():"N/D") + ", aula="  +(aula!=null ?aula.getNomeAula():"N/D")+"d=" + (d!=null ? d.getNome()+""+d.getCognome():"N/D") + ", r=" +(r!=null ? r.getNome()+""+r.getCognome():"N/D") + "]";
 	}
 }
 

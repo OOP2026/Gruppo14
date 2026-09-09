@@ -58,13 +58,15 @@ public class Utente {
 		 * @return true o false, per accettare o rifiutare l'autenticazione
 		 */
 		public boolean login(String email,String login,String password) {
-			if(this.email==email && this.login==login && this.password==password) {
-				return true;
-			}
-			else {
-				return false;
-			}
+			return this.email.equals(email) && this.login.equals(login) && this.password.equals(password); 
 		}
+		public String getLogin() {
+			return login;
+		}
+		public void setLogin(String login) {
+			this.login = login;
+		}
+		
 }
 
 

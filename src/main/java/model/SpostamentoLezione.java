@@ -94,4 +94,10 @@ public class SpostamentoLezione {
 	public GiornoSettimana getGiornoProposto() {
 		return giornoProposto;
 	}
+	@Override
+	public String toString() {
+		return "SpostamentoLezione [idSpostamento=" + idSpostamento + ", orarioIniziale=" + orarioIniziale
+				+ ", giornoIniziale=" + giornoIniziale + ", giornoProposto=" + giornoProposto + ", orarioProposto="
+				+ orarioProposto + ", stato=" + stato + ", aula=" + aula + "]";
+	}
 }
