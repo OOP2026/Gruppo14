@@ -4,7 +4,7 @@ import Progetto.*;
 import GUI.*;
 import java.util.ArrayList;
 import java.util.List;
-public class controller {
+public class Controller {
 
 	    /**
 	     *  Liste in memoria per simulare il database (niente persistenza per ora)
@@ -25,7 +25,7 @@ public class controller {
 	    /**
 	     * Costruttore controller
 	     */
-	    public controller() {
+	    public Controller() {
 	        this.utenti = new ArrayList<>();
 	        this.richiesteSpostamento = new ArrayList<>();
 	        this.orari = new ArrayList<>();
