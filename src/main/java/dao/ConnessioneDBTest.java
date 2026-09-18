@@ -6,12 +6,12 @@ import java.sql.*;
 	 * 2. User del database: Identifica il nome utente del progettista del database;
 	 * 3. Password del database: Password di accesso al database. Fondamentale per la sicurezza dei propri dati.
  */
-public class ConnessioneDB {
+public class ConnessioneDBTest {
 	String url="jdbc:postgresql://localhost:5432/Progetto";
 	String user="postgres";
 	String password="Matteogen_005";
 	public static void main(String[]args) {
-		ConnessioneDB connessionePostgreSQL=new ConnessioneDB();
+		ConnessioneDBTest connessionePostgreSQL=new ConnessioneDBTest();
 		connessionePostgreSQL.connect();
 	}
 	/**
