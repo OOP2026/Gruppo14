@@ -17,7 +17,7 @@ public class GestioneLezioniFrame extends JFrame {
      * Costruttore della classe GestioneLezioniFrame, finestra per la gestione delle lezioni
      * @param controller
      */
-    public GestioneLezioniFrame(controller controller) {
+    public GestioneLezioniFrame(Controller controller) {
         this.controller = controller;
 
         setTitle("Gestione Lezioni - Aggiungi Lezione");
