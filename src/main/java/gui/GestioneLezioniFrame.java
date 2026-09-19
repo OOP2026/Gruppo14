@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class GestioneLezioniFrame extends JFrame {
 
-    private controller controller;
+    private Controller controller;
     private JComboBox<Insegnamento> comboInsegnamento;
     private JComboBox<String> comboGiorno;
     private JTextField txtOraInizio;
