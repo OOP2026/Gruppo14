@@ -1,6 +1,6 @@
 package GUI;
 
-import Controller.controller;
+import controller.Controller;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,12 +17,12 @@ public class LoginFrame extends JFrame {
     private JButton btnLogin;
     private JPanel mainPanel;
 
-    private controller controller; // Riferimento al controller
+    private Controller controller; // Riferimento al controller
 /**
  * Costruttore della classe LoginFrame usato per visualizzare la finestra di autenticazione al sistema degli orari e lezioni
  * @param controller
  */
-    public LoginFrame(controller controller) {
+    public LoginFrame(Controller controller) {
         this.controller = controller;
         mainPanel=new JPanel(new GridBagLayout());
         setContentPane(mainPanel);
