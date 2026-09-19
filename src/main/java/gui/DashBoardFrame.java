@@ -1,19 +1,19 @@
 package GUI;
 
-import Controller.controller;
+import controller.Controller;
 import Progetto.*;
 import java.awt.*;
 import javax.swing.*;
 
 public class DashBoardFrame extends JFrame {
 
-    private controller controller;
+    private Controller controller;
 /**
  * Costruttore della classe DashBoardFrame che, come LoginFrame, estendono la loro superclasse JFrame contenente tutte le caratteristiche di una classe
  * come ridimensionamento,layout,ecc...
  * @param controller
  */
-    public DashBoardFrame(controller controller) {
+    public DashBoardFrame(Controller controller) {
         this.controller = controller;
         JButton btnGestisciLezioni = new JButton("Gestisci Lezioni");
         JButton btnGestisciSpostamenti = new JButton("Gestisci Spostamenti");
