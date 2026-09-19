@@ -1,6 +1,6 @@
 package GUI;
 
-import Controller.controller;
+import controller.Controller;
 import Progetto.*;
 import java.awt.*;
 import javax.swing.*;
@@ -10,14 +10,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GestioneSpostamentiFrame extends JFrame {
 
-    private controller controller;
+    private Controller controller;
     private JTable tabellaSpostamenti;
     private DefaultTableModel tableModel;
 /**
  * Costruttore della classe GestioneSpostamentiFrame
  * @param controller
  */
-    public GestioneSpostamentiFrame(controller controller) {
+    public GestioneSpostamentiFrame(Controller controller) {
         this.controller = controller;
 
         setTitle("Gestione Richieste Spostamento");
