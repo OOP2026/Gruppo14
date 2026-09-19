@@ -1,6 +1,6 @@
 package GUI;
 
-import Controller.controller;
+import controller.Controller;
 import Progetto.*;
 import java.awt.*;
 import javax.swing.*;
@@ -8,9 +8,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class OrarioFrame extends JFrame {
 
-    private controller controller;
+    private Controller controller;
 
-    public OrarioFrame(controller controller) {
+    public OrarioFrame(Controller controller) {
         this.controller = controller;
 
         setTitle("Orario Lezioni");
