@@ -106,7 +106,7 @@ public class Controller {
 	        Aula aula = new Aula(nomeAula);
 
 	        // 3. Istanzia la nuova Lezione
-	        Lezione nuovaLezione = new Lezione(GiornoSettimana.LUNEDI, LocalTime.of(8, 45), LocalTime.of(10, 30), i1, aula,r);
+	        Lezione nuovaLezione = new Lezione(GiornoSettimana.LUNEDI, LocalTime.of(8, 45), LocalTime.of(10, 30), i1, aula,r,o);
 
 	        this.l.add(nuovaLezione);
 
