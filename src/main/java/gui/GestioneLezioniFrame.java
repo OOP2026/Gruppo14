@@ -1,6 +1,6 @@
 package GUI;
 
-import controller.Controller;
+import ControllerPackage.Controller;
 import Progetto.*;
 import java.awt.*;
 import javax.swing.*;
