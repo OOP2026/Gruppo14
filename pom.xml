@@ -56,7 +56,6 @@
     <version>42.7.7</version>
 </dependency>
     </dependencies>
-        <finalName>Template-OOP-2026</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -85,6 +84,7 @@
                 </executions>
             </plugin>
 			<build>
+			<finalName>Template-OOP-2026</finalName>
 			<plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
