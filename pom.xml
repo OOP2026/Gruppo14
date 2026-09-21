@@ -88,6 +88,7 @@
                     </execution>
                 </executions>
             </plugin>
+			<build>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
