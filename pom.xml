@@ -57,23 +57,8 @@
 </dependency>
     </dependencies>
             <!-- unit tests (*Test) -->
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
-            </plugin>
+	
             <!-- integration tests (*IT) -->
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.18.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 			<build>
 			<finalName>Template-OOP-2026</finalName>
 			<plugins>
@@ -97,5 +82,25 @@
                 </configuration>
             </plugin>
 		</plugins>
+		<plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+            </plugin>
+	</plugins>
+	<plugins>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.18.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+	</plugins>
     </build>
 </project>
