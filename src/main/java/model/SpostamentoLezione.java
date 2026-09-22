@@ -3,9 +3,9 @@ import java.time.*;
 public class SpostamentoLezione {
 	private String idSpostamento;
 	private LocalTime orarioIniziale;
+	private Lezione l;
 	private GiornoSettimana giornoIniziale;
-	private GiornoSettimana giornoProposto;
-	private LocalTime orarioProposto;
+	private LocalTime orarioFinale;
 	private Stato stato;
 	private Aula aula;
 	/**
@@ -16,12 +16,13 @@ public class SpostamentoLezione {
 	 * @param giornoProposto
 	 * @param orarioProposto
 	 */
-	public SpostamentoLezione(String id,LocalTime orarioIniziale,GiornoSettimana giornoIniziale,GiornoSettimana giornoProposto,LocalTime orarioProposto) {
+	public SpostamentoLezione(String id,Lezione l,GiornoSettimana giornoIniziale,LocalTime orarioIniziale,LocalTime orarioFinale) {
 		this.idSpostamento=id;
-		this.orarioIniziale=orarioIniziale;
+		this.l=l;
 		this.giornoIniziale=giornoIniziale;
+		this.orarioIniziale=orarioIniziale;
 		this.giornoProposto=giornoProposto;
-		this.orarioProposto=orarioProposto;
+		this.orarioFinale=orarioFinale;
 		this.stato=Stato.IN_ATTESA; 
 		/**
 		 * Stato di default:IN_ATTESA
