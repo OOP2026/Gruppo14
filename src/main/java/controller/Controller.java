@@ -124,8 +124,8 @@ public class Controller {
 	    	Lezione l1=new Lezione(GiornoSettimana.LUNEDI,LocalTime.of(8, 45),LocalTime.of(10, 30),i1,aula,r);
 	    	Lezione l2=new Lezione(GiornoSettimana.MERCOLEDI,LocalTime.of(14, 0),LocalTime.of(16, 0),i2,aula,r);
 	    	Orario orarioMatteo=new Orario();
-	    	orarioMatteo.aggiungiLezione(l1);
-	    	orarioMatteo.aggiungiLezione(l2);
+	    	orarioMatteo.add(l1);
+	    	orarioMatteo.add(l2);
 	    	insegnamenti.add(i1);
 	    	insegnamenti.add(i2);
 	    	SpostamentoLezione r1=new SpostamentoLezione("N5430",l1,LocalTime.of(15, 0),GiornoSettimana.MARTEDI,LocalTime.of(17, 0));
