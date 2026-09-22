@@ -17,15 +17,14 @@ private Orario o;
  * @param i
  * @param a
  */
-	public Lezione(GiornoSettimana giorno,LocalTime oraInizio,LocalTime oraFine,Insegnamento i,Aula a,Responsabile r,Orario o) {
+	public Lezione(GiornoSettimana giorno,LocalTime oraInizio,LocalTime oraFine,Insegnamento i,Aula a,Responsabile r) {
 		this.giorno=giorno;
 		this.oraInizio=oraInizio;
 		this.oraFine=oraFine;
 		this.insegnamento=i;
 		this.aula=a;
 		this.d=d;
-		this.r=r;
-		this.o=o;// TODO Auto-generated constructor stub
+		this.r=r// TODO Auto-generated constructor stub
 	}
 	/**
 	 * Restituisce l'insegnamento cui si riferisce
