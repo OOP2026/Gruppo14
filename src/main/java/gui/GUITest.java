@@ -8,7 +8,7 @@ public class GUITest {
  */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(()->{
-			controller controller=new controller();
+			Controller controller=new Controller();
 			LoginFrame frame=new LoginFrame(controller);
 			frame.setVisible(true);
 		});
