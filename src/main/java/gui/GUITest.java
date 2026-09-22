@@ -1,5 +1,5 @@
 package GUI;
-import Controller.*;
+import controller.*;
 import javax.swing.SwingUtilities;
 public class GUITest {
 /**
