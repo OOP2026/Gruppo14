@@ -1,4 +1,4 @@
-package ControllerPackage;
+package controller;
 import java.time.*;
 import Progetto.*;
 import GUI.*;
