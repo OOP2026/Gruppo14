@@ -78,8 +78,8 @@ public class SpostamentoLezione {
 	 * Restituisce l'orario proposto per lo spostamento
 	 * @return orarioProposto
 	 */
-	public LocalTime getOrarioProposto() {
-		return orarioProposto;
+	public LocalTime getOrarioFinale() {
+		return orarioFinale;
 	}
 	/**
 	 * Restituisce il giorno prima dello spostamento lezione
@@ -88,13 +88,7 @@ public class SpostamentoLezione {
 	public GiornoSettimana getGiornoIniziale() {
 		return giornoIniziale;
 	}
-	/**
-	 * Restituisce il giorno proposto per lo spostamento
-	 * @return giornoProposto
-	 */
-	public GiornoSettimana getGiornoProposto() {
-		return giornoProposto;
-	}
+	
 	public Lezione getLezione(){
 		return l;
 	}
