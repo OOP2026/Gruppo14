@@ -128,7 +128,7 @@ public class Controller {
 	    	orarioMatteo.add(l2);
 	    	insegnamenti.add(i1);
 	    	insegnamenti.add(i2);
-	    	SpostamentoLezione r1=new SpostamentoLezione("N5430",l1,LocalTime.of(15, 0),GiornoSettimana.MARTEDI,LocalTime.of(17, 0));
+	    	SpostamentoLezione r1=new SpostamentoLezione("N5430",l1,GiornoSettimana.MARTEDI,LocalTime.of(15, 0),LocalTime.of(17, 0));
 	    	richiesteSpostamento.add(r1);
 	    	s1.setOrario(orarioMatteo);
 	    	
