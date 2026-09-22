@@ -17,7 +17,7 @@ private Orario o;
  * @param i
  * @param a
  */
-	public Lezione(GiornoSettimana giorno,LocalTime oraInizio,LocalTime oraFine,Insegnamento i,Aula a,Responsabile r) {
+	public Lezione(GiornoSettimana giorno,LocalTime oraInizio,LocalTime oraFine,Insegnamento i,Aula a,Responsabile r,Orario o) {
 		this.giorno=giorno;
 		this.oraInizio=oraInizio;
 		this.oraFine=oraFine;
