@@ -85,7 +85,7 @@ public class SpostamentoLezione {
 	 * Restituisce il giorno prima dello spostamento lezione
 	 * @return giornoIniziale 
 	 */
-	public GiornoSettimana getGiornoIniziale() {
+	public GiornoSettimana getNuovoGiorno() {
 		return giornoIniziale;
 	}
 	
