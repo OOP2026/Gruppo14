@@ -188,7 +188,7 @@ public class Controller {
                 lezioneOriginale.setOraInizio(richiestaTrovata.getOrarioIniziale());
                 lezioneOriginale.setOraFine(richiestaTrovata.getOrarioFinale());
                 if (richiestaTrovata.getAula() != null) {
-                    lezioneOriginale.setAula(richiestaTrovata.getAula());
+                    lezioneOriginale.setNomeAula(richiestaTrovata.getAula());
                 }
             }
         }
