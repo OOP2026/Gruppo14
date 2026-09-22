@@ -18,7 +18,7 @@ public class SpostamentoLezioneDAOImpl implements SpostamentoLezioneDAO {
     Aula a=new Aula("A7");
     Responsabile r=new Responsabile("Marco","Verdi","marco_verdi05@unina.it","marcoverdi5","Asvf4857",i);
     Lezione l=new Lezione(GiornoSettimana.MARTEDI,LocalTime.of(16,0),LocalTime.of(18, 0),i,a,r);
-    SpostamentoLezione spostamento=new SpostamentoLezione("W4533453",l,LocalTime.of(12,0),GiornoSettimana.GIOVEDI,LocalTime.of(14, 0));
+    SpostamentoLezione spostamento=new SpostamentoLezione("W4533453",l,GiornoSettimana.GIOVEDI,LocalTime.of(12,0),LocalTime.of(14, 0));
     public SpostamentoLezioneDAOImpl(Connection connection) {
         this.connection = connection;
     }
