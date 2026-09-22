@@ -42,6 +42,9 @@ public class SpostamentoLezione {
 	public void setStato(Stato stato) {
         this.stato = stato;
     }
+
+	public void setIdSpost(String idSpostamento){
+		this.idSpostamento=idSpostamento;
 	public String getIdSpost() {
 		return idSpostamento;
 	}
