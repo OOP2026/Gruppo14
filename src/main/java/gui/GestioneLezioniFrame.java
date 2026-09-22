@@ -18,7 +18,7 @@ public class GestioneLezioniFrame extends JFrame {
      * @param controller
      */
     public GestioneLezioniFrame(Controller controller) {
-        this.controller = controller;
+        this.controller2 = controller;
 
         setTitle("Gestione Lezioni - Aggiungi Lezione");
         setSize(450, 300);
