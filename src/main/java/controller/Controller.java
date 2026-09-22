@@ -112,7 +112,7 @@ public class Controller {
 
 	        // 6. Assegna la lezione all'orario dello studente/docente interessato
 	        if (utenteLoggato instanceof Studente) {
-	            ((Studente) utenteLoggato).getOrario().aggiungiLezione(nuovaLezione);
+	            ((Studente) utenteLoggato).visualizzaOrario().aggiungiLezione(nuovaLezione);
 	        }
 	    }
 	    /**
