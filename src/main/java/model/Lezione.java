@@ -1,6 +1,7 @@
 package Progetto;
 import java.time.LocalTime;
 public class Lezione {
+private String id;
 private GiornoSettimana giorno;
 private LocalTime oraInizio;
 private LocalTime oraFine;
@@ -17,7 +18,8 @@ private Orario o;
  * @param i
  * @param a
  */
-	public Lezione(GiornoSettimana giorno,LocalTime oraInizio,LocalTime oraFine,Insegnamento i,Aula a,Responsabile r) {
+	public Lezione(String id,GiornoSettimana giorno,LocalTime oraInizio,LocalTime oraFine,Insegnamento i,Aula a,Responsabile r) {
+		this.id=id;
 		this.giorno=giorno;
 		this.oraInizio=oraInizio;
 		this.oraFine=oraFine;
@@ -25,6 +27,10 @@ private Orario o;
 		this.aula=a;
 		this.d=d;
 		this.r=r// TODO Auto-generated constructor stub
+	}
+
+	public String getId(){
+		return id;
 	}
 	/**
 	 * Restituisce l'insegnamento cui si riferisce
