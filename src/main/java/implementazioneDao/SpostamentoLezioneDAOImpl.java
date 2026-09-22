@@ -74,7 +74,7 @@ public class SpostamentoLezioneDAOImpl implements SpostamentoLezioneDAO {
 
     private SpostamentoLezione mapResultSetToEntity(ResultSet rs) throws SQLException {
     	spostamento.setIdSpost("R8546");
-    	spostamento.setIdLezione("A75465");
+    	spostamento.l.setIdLezione("A75465");
     	spostamento.setOraInizio(LocalTime.of(8, 45));
         spostamento.setOraFine(LocalTime.of(10, 30));
         spostamento.setNomeAula(a.getNomeAula());
