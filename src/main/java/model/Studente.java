@@ -28,5 +28,6 @@ Orario o;
 	public Orario visualizzaOrario() {
 		return o;
 	}
-
+	public void setOrario(Orario o){
+		this.o=o;
 }
