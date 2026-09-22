@@ -64,6 +64,10 @@ private Orario o;
 	public LocalTime getOraInizio() {
 		return oraInizio;
 	}
+
+	public void setOraInizio(LocalTime oraInizio){
+		this.oraInizio=oraInizio;
+	}
 	/**
 	 * Restituisce ora fine della lezione
 	 * @return oraFine
