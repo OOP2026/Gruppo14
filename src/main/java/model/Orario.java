@@ -57,6 +57,36 @@ Aula aula;
 	public String toString() {
 		return "Orario [corso=" + corso.getNomeIns() + ", anno=" + anno + "]";
 	}
+	/**
+ * Aggiunge una lezione verificando che non ci siano sovrapposizioni d'orario.
+ * @param nuovaLezione la lezione da aggiungere
+ * @throws Exception se la lezione si sovrappone a una già esistente
+ */
+public void aggiungiLezione(Lezione nuovaLezione) throws Exception {
+    if (nuovaLezione == null) {
+        throw new IllegalArgumentException("La lezione non può essere nulla.");
+    }
+
+    for (Lezione l : lezioni) {
+        // Controlla se le due lezioni sono nello stesso giorno
+        if (l.getGiorno().equals(nuovaLezione.getGiorno())) {
+            
+            // Verifica sovrapposizione temporale:
+            // (inizio1 < fine2) AND (inizio2 < fine1)
+            boolean sovrapposizione = nuovaLezione.getOraInizio().isBefore(l.getOraFine()) && 
+                                     l.getOraInizio().isBefore(nuovaLezione.getOraFine());
+
+            if (sovrapposizione) {
+                throw new Exception("Conflitto d'orario: esiste già una lezione il " 
+                        + nuovaLezione.getGiorno() + " tra le " 
+                        + l.getOraInizio() + " e le " + l.getOraFine());
+            }
+        }
+    }
+
+    // Se non ci sono sovrapposizioni, aggiunge la lezione
+    this.lezioni.add(nuovaLezione);
+}
 	}
 
 
