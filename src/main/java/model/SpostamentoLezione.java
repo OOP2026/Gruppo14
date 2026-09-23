@@ -88,6 +88,9 @@ public class SpostamentoLezione {
 	public LocalTime getOrarioFinale() {
 		return orarioFinale;
 	}
+	public void setOrarioFinale(LocalTime orarioFinale){
+		this.orarioFinale=orarioFinale;
+	}
 	/**
 	 * Restituisce il giorno prima dello spostamento lezione
 	 * @return giornoIniziale 
