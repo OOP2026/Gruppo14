@@ -71,6 +71,9 @@ public class SpostamentoLezione {
 	public Aula getAula() {
 		return aula;
 	}
+	public void setAula(Aula a){
+		this.aula=a;
+	}
 	/**
 	 * Restituisce l'orario prima dello spostamento della lezione
 	 * @return orarioIniziale
