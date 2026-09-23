@@ -49,6 +49,9 @@ private Orario o;
 	public Aula getAula() {
 		return aula;
 	}
+	public void setAula(Aula a){
+		this.aula=a;
+	}
 	/**
 	 * Ritorna il docente della lezione
 	 * @return docente
