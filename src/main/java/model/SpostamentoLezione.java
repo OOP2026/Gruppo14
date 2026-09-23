@@ -78,6 +78,9 @@ public class SpostamentoLezione {
 	public LocalTime getOrarioIniziale() {
 		return orarioIniziale;
 	}
+	public void setOrarioIniziale(LocalTime orarioIniziale){
+		this.orarioIniziale=orarioIniziale;
+	}
 	/**
 	 * Restituisce l'orario proposto per lo spostamento
 	 * @return orarioProposto
