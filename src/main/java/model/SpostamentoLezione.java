@@ -4,7 +4,7 @@ public class SpostamentoLezione {
 	private String idSpostamento;
 	private LocalTime orarioIniziale;
 	private Lezione l;
-	private GiornoSettimana giornoIniziale;
+	private GiornoSettimana nuovoGiorno;
 	private LocalTime orarioFinale;
 	private Stato stato;
 	private Aula aula;
@@ -21,7 +21,7 @@ public class SpostamentoLezione {
 		this.l=l;
 		this.giornoIniziale=giornoIniziale;
 		this.orarioIniziale=orarioIniziale;
-		this.giornoProposto=giornoProposto;
+		this.giornoIniziale=giornoIniziale;
 		this.orarioFinale=orarioFinale;
 		this.stato=Stato.IN_ATTESA; 
 		/**
@@ -56,13 +56,13 @@ public class SpostamentoLezione {
 		/**
 		 * equalsignorecase confronta due stringhe senza tener conto delle maiuscole o minuscole (case asensitive).
 		 */
-        if (this.getGiornoProposto()!=altra.getGiornoProposto()) {
+        if (this.getNuovoGiorno()!=altra.getNuovoGiorno()) {
             return false;
         }
         /**
          *  Due intervalli temporali [A, B] e [C, D] si sovrappongono se A < D e C < B
          */
-        return this.orarioIniziale.isBefore(altra.getOrarioProposto()) && altra.getOrarioProposto().isBefore(this.orarioProposto);
+        return this.orarioIniziale.isBefore(altra.getOrarioFinale()) && altra.getOrarioFinale().isBefore(this.orarioFinale);
     }
 	/**
 	 * Restituisce l'aula per confrontare il conflitto tra due lezioni
@@ -99,7 +99,7 @@ public class SpostamentoLezione {
 	@Override
 	public String toString() {
 		return "SpostamentoLezione [idSpostamento=" + idSpostamento + ", orarioIniziale=" + orarioIniziale
-				+ ", giornoIniziale=" + giornoIniziale + ", giornoProposto=" + giornoProposto + ", orarioProposto="
-				+ orarioProposto + ", stato=" + stato + ", aula=" + aula + "]";
+				+ ", nuovoGiorno=" + nuovoGiorno +  ",orarioProposto="
+				+ orarioFinale + ", stato=" + stato + ", aula=" + aula + "]";
 	}
 }
