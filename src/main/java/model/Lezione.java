@@ -66,6 +66,9 @@ private Orario o;
 	public GiornoSettimana getGiorno() {
 		return giorno;
 	}
+	public void setGiorno(GiornoSettimana giorno){
+		this.giorno=giorno;
+	}
 	/**
 	 * Restituisce ora di inizio della lezione
 	 * @return oraInizio
