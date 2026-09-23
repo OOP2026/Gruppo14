@@ -87,6 +87,9 @@ private Orario o;
 	public LocalTime getOraFine() {
 		return oraFine;
 	}
+	public void setOraFine(LocalTime oraFine){
+	this.oraFine=oraFine;
+	}
 	/**
 	 * Restituisce l'orario in cui è contenuta la lezione
 	 * @return orario
