@@ -31,3 +31,4 @@ Orario o;
 	public void setOrario(Orario o){
 		this.o=o;
 }
+}
