@@ -106,13 +106,13 @@ public class Controller {
 	        Aula aula = new Aula(nomeAula);
 
 	        // 3. Istanzia la nuova Lezione
-	        Lezione nuovaLezione = new Lezione(GiornoSettimana.LUNEDI, LocalTime.of(8, 45), LocalTime.of(10, 30), i1, aula,r,o);
+	        Lezione nuovaLezione = new Lezione("N3546",GiornoSettimana.LUNEDI, LocalTime.of(8, 45), LocalTime.of(10, 30), i1, aula,r,o);
 
 	        this.l.add(nuovaLezione);
 
 	        // 6. Assegna la lezione all'orario dello studente/docente interessato
 	        if (utenteLoggato instanceof Studente) {
-	            ((Studente) utenteLoggato).visualizzaOrario().aggiungiLezione(nuovaLezione);
+	            ((Studente) utenteLoggato).visualizzaOrario();
 	        }
 	    }
 	    /**
@@ -121,11 +121,11 @@ public class Controller {
 	    private void popolaDatiIniziali() {
 	    	Studente s1=new Studente("Matteo","Gentile","mat.gentile@studenti.unina.it","mgentile_005","matt005","N86005554",AnnoCorso.I,"Informatica");
 	    	this.utenti.add(s1);
-	    	Lezione l1=new Lezione(GiornoSettimana.LUNEDI,LocalTime.of(8, 45),LocalTime.of(10, 30),i1,aula,r);
-	    	Lezione l2=new Lezione(GiornoSettimana.MERCOLEDI,LocalTime.of(14, 0),LocalTime.of(16, 0),i2,aula,r);
-	    	Orario orarioMatteo=new Orario();
-	    	orarioMatteo.add(l1);
-	    	orarioMatteo.add(l2);
+	    	Lezione l1=new Lezione("S55679",GiornoSettimana.LUNEDI,LocalTime.of(8, 45),LocalTime.of(10, 30),i1,aula,r);
+	    	Lezione l2=new Lezione("R2345R",GiornoSettimana.MERCOLEDI,LocalTime.of(14, 0),LocalTime.of(16, 0),i2,aula,r);
+	    	Orario orarioMatteo=new Orario("1344E2354",AnnoCorso.I);
+	    	orarioMatteo.aggiungiLezione(l1);
+	    	orarioMatteo.aggiungiLezione(l2);
 	    	insegnamenti.add(i1);
 	    	insegnamenti.add(i2);
 	    	SpostamentoLezione r1=new SpostamentoLezione("N5430",l1,GiornoSettimana.MARTEDI,LocalTime.of(15, 0),LocalTime.of(17, 0));
@@ -188,7 +188,7 @@ public class Controller {
                 lezioneOriginale.setOraInizio(richiestaTrovata.getOrarioIniziale());
                 lezioneOriginale.setOraFine(richiestaTrovata.getOrarioFinale());
                 if (richiestaTrovata.getAula() != null) {
-                    lezioneOriginale.setNomeAula(richiestaTrovata.getAula());
+                    lezioneOriginale.setAula(richiestaTrovata.getAula());
                 }
             }
         }
