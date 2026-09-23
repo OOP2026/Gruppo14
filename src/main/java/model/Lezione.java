@@ -26,7 +26,7 @@ private Orario o;
 		this.insegnamento=i;
 		this.aula=a;
 		this.d=d;
-		this.r=r// TODO Auto-generated constructor stub
+		this.r=r;// TODO Auto-generated constructor stub
 	}
 
 	public String getId(){
