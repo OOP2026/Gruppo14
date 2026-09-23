@@ -45,6 +45,7 @@ public class SpostamentoLezione {
 
 	public void setIdSpost(String idSpostamento){
 		this.idSpostamento=idSpostamento;
+	}
 	public String getIdSpost() {
 		return idSpostamento;
 	}
