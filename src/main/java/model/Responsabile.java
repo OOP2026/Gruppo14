@@ -89,8 +89,8 @@ public class Responsabile extends Utente {
                 if (s1.vaInConflittoCon(s2)) {
                     conflittiTrovati = true;
                     System.out.println("CONFLITTO RILEVATO nell'aula " + s1.getAula() + ":");
-                    System.out.println("  - Spostamento A: " + s1.getIdSpost() + " (" + s1.getGiornoIniziale() +s1.getOrarioIniziale()+ " -> " + s1.getGiornoProposto() +s1.getOrarioProposto()+")");
-                    System.out.println("  - Spostamento B: " + s2.getIdSpost() + " (" + s2.getGiornoIniziale() +s2.getOrarioIniziale()+ " -> " + s2.getGiornoProposto() +s2.getOrarioProposto()+")");
+                    System.out.println("  - Spostamento A: " + s1.getIdSpost() + " (" + s1.getNuovoGiorno() +s1.getOrarioIniziale()+ " -> " +s1.getOrarioFinale()+")");
+                    System.out.println("  - Spostamento B: " + s2.getIdSpost() + " (" + s2.getNuovoGiorno() +s2.getOrarioIniziale()+ " -> " +s2.getOrarioFinale()+")");
                 }
             }
         }
