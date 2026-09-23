@@ -83,7 +83,7 @@ public class GestioneLezioniFrame extends JFrame {
 
             // Richiesta al controller per l'inserimento
             // Se il trigger sul DB trova conflitti d'orario, l'eccezione verrà catturata qui
-            controller.aggiungiLezione(ins, giorno, oraInizio, oraFine, nomeAula);
+            controller2.aggiungiLezione(ins, giorno, oraInizio, oraFine, nomeAula);
 
             JOptionPane.showMessageDialog(this, "Lezione aggiunta con successo!");
             dispose();
