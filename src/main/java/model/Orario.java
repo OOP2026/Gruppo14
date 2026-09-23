@@ -20,14 +20,9 @@ Aula aula;
  * @param d
  * @param a
  */
-	public Orario(Insegnamento corso,AnnoCorso anno,GiornoSettimana g,LocalTime i,LocalTime f,Docente d,Aula a) {
-		this.corso=corso;
+	public Orario(String idOrario,AnnoCorso anno) {
+		this.idOrario=idOrario;
 		this.anno=anno;
-		this.giorno=g;
-		this.inizio=i;
-		this.fine=f;
-		this.docente=d;
-		this.aula=a;
 		
 		// TODO Auto-generated constructor stub
 	}
