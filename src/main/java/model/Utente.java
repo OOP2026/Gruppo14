@@ -26,28 +26,28 @@ public class Utente {
 		 * Restituisce il nome dell'utente
 		 * @return nome
 		 */
-		String getNome() {
+		public String getNome() {
 			return nome;
 		}
 		/**
 		 * Restituisce il cognome dell'utente
 		 * @return cognome
 		 */
-		String getCognome() {
+		public String getCognome() {
 			return cognome;
 		}
 		/**
 		 * Restituisce l'email dell'utente
 		 * @return email
 		 */
-		String getEmail() {
+		public String getEmail() {
 			return email;
 		}
 		/**
 		 * Restituisce la password dell'utente
 		 * @return password
 		 */
-		String getPassword() {
+		public String getPassword() {
 			return password;
 		}
 		/**
