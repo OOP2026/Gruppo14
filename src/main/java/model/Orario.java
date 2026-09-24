@@ -89,6 +89,9 @@ public void aggiungiLezione(Lezione nuovaLezione) throws Exception {
     // Se non ci sono sovrapposizioni, aggiunge la lezione
     this.lezioni.add(nuovaLezione);
 }
+	public ArrayList<Lezione> getLezioni(){
+		return lezioni;
 	}
+}
 
 
