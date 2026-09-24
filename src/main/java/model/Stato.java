@@ -1,4 +1,4 @@
-package Progetto;
+package model;
 /**
  * Classe enumerativa Stato, usata per elencare i vari stati di una richiesta
  */
