@@ -1,4 +1,4 @@
-package Progetto;
+package model;
 /**
  * Classe enumerativa AnnoCorso, usata per elencare in formato di numeri romani, gli anni di corso in maniera tradizionale
  */
