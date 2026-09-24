@@ -2,6 +2,7 @@ package Progetto;
 import java.util.*;
 import java.time.*;
 public class Orario {
+String idOrario;
 Insegnamento corso;
 AnnoCorso anno;
 GiornoSettimana giorno;
@@ -9,6 +10,7 @@ LocalTime inizio;
 LocalTime fine;
 Docente docente;
 Aula aula;
+ArrayList<Lezione> lezioni;
 /**
  * Costruttore della classe Orario:
  * @param corso
@@ -23,7 +25,7 @@ Aula aula;
 	public Orario(String idOrario,AnnoCorso anno) {
 		this.idOrario=idOrario;
 		this.anno=anno;
-		
+		lezioni=new ArrayList<>();
 		// TODO Auto-generated constructor stub
 	}
 	/**
@@ -87,6 +89,9 @@ public void aggiungiLezione(Lezione nuovaLezione) throws Exception {
     // Se non ci sono sovrapposizioni, aggiunge la lezione
     this.lezioni.add(nuovaLezione);
 }
+	public ArrayList<Lezione> getLezioni(){
+		return lezioni;
 	}
+}
 
 

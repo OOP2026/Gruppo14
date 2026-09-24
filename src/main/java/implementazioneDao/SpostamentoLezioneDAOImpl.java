@@ -17,7 +17,7 @@ public class SpostamentoLezioneDAOImpl implements SpostamentoLezioneDAO {
     Insegnamento i=new Insegnamento("Algebra",LocalDate.of(2025,1,4),LocalDate.of(2027,1,5),d,45);
     Aula a=new Aula("A7");
     Responsabile r=new Responsabile("Marco","Verdi","marco_verdi05@unina.it","marcoverdi5","Asvf4857",i);
-    Lezione l=new Lezione(GiornoSettimana.MARTEDI,LocalTime.of(16,0),LocalTime.of(18, 0),i,a,r);
+    Lezione l=new Lezione("N7654",GiornoSettimana.MARTEDI,LocalTime.of(16,0),LocalTime.of(18, 0),i,a,r);
     SpostamentoLezione spostamento=new SpostamentoLezione("W4533453",l,GiornoSettimana.GIOVEDI,LocalTime.of(12,0),LocalTime.of(14, 0));
     public SpostamentoLezioneDAOImpl(Connection connection) {
         this.connection = connection;
@@ -74,10 +74,10 @@ public class SpostamentoLezioneDAOImpl implements SpostamentoLezioneDAO {
 
     private SpostamentoLezione mapResultSetToEntity(ResultSet rs) throws SQLException {
     	spostamento.setIdSpost("R8546");
-    	spostamento.l.setIdLezione("A75465");
-    	spostamento.setOraInizio(LocalTime.of(8, 45));
-        spostamento.setOraFine(LocalTime.of(10, 30));
-        spostamento.setNomeAula(a.getNomeAula());
+    	spostamento.getLezione().setIdLezione("A75465");
+    	spostamento.setOrarioIniziale(LocalTime.of(8, 45));
+        spostamento.setOrarioFinale(LocalTime.of(10, 30));
+        spostamento.setAula(a);
         spostamento.setStato(Stato.APPROVATA);
         return spostamento;
             

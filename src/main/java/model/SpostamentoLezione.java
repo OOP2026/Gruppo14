@@ -16,14 +16,13 @@ public class SpostamentoLezione {
 	 * @param giornoProposto
 	 * @param orarioProposto
 	 */
-	public SpostamentoLezione(String id,Lezione l,GiornoSettimana giornoIniziale,LocalTime orarioIniziale,LocalTime orarioFinale) {
+	public SpostamentoLezione(String id,Lezione l,GiornoSettimana nuovoGiorno,LocalTime orarioIniziale,LocalTime orarioFinale,Stato stato) {
 		this.idSpostamento=id;
 		this.l=l;
-		this.giornoIniziale=giornoIniziale;
+		this.nuovoGiorno=nuovoGiorno;
 		this.orarioIniziale=orarioIniziale;
-		this.giornoIniziale=giornoIniziale;
 		this.orarioFinale=orarioFinale;
-		this.stato=Stato.IN_ATTESA; 
+		this.stato=stato; 
 		/**
 		 * Stato di default:IN_ATTESA
 		 */
@@ -99,7 +98,7 @@ public class SpostamentoLezione {
 	 * @return giornoIniziale 
 	 */
 	public GiornoSettimana getNuovoGiorno() {
-		return giornoIniziale;
+		return nuovoGiorno;
 	}
 	
 	public Lezione getLezione(){
