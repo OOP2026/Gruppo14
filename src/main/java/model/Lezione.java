@@ -1,4 +1,4 @@
-package Progetto;
+package model;
 import java.time.LocalTime;
 public class Lezione {
 private String id;
