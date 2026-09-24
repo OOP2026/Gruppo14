@@ -1,4 +1,4 @@
-package Progetto;
+package model;
 import java.time.*;
 public class SpostamentoLezione {
 	private String idSpostamento;
