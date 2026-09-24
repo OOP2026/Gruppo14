@@ -1,4 +1,4 @@
-package Progetto;
+package model;
 /**
  * Classe enumerativa GiornoSettimana, usata per elencare i giorni attivi di lezione
  */
