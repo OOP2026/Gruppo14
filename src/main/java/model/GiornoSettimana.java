@@ -8,9 +8,4 @@ public enum GiornoSettimana {
 	MERCOLEDI,
 	GIOVEDI,
 	VENERDI;
-
-	boolean equalsIgnoreCase(GiornoSettimana giorno) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
