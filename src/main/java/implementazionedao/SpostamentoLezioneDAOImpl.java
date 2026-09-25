@@ -9,7 +9,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import Progetto.*;
+import model.*;
 public class SpostamentoLezioneDAOImpl implements SpostamentoLezioneDAO {
 
     private final Connection connection;
