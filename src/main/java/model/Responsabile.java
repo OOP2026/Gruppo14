@@ -1,21 +1,20 @@
 package model;
 import java.util.*;
 import java.time.*;
+import java.util.logging.*;
 public class Responsabile extends Utente {
 	ArrayList<Insegnamento> insegnamentiAttivi=new ArrayList<>();
 	ArrayList<Lezione> lezioni= new ArrayList<>();
 	ArrayList<SpostamentoLezione> spostamenti=new ArrayList<>();
+	private static final Logger LOGGER = Logger.getLogger(Responsabile.class.getName());
 	/**
-	 * Costruttore della classe Responsabile:
+	 * Costruttore della classe Responsabile eredita dalla classe Utente
 	 * @param nome
 	 * @param cognome
 	 * @param email
 	 * @param login
 	 * @param password
 	 * @param insegnamentiAttivi
-	 */
-	/**
-	 * Eredita dalla classe Utente.
 	 */
 	public Responsabile(String nome,String cognome,String email,String login,String password,Insegnamento insegnamentiAttivi) {
 		super(nome,cognome,email,login,password);
@@ -27,12 +26,7 @@ public class Responsabile extends Utente {
 	 * @return true o false
 	 */
 	public boolean definisceInsegnamento(Insegnamento i) {
-		if(i.getDocente()==null || i.getCFU()<=0 || i.getNomeIns()==null) {
-			return false;
-		}
-		else {
-			return true;
-		}
+		return i.getDocente()==null || i.getCFU()<=0 || i.getNomeIns()==null;
 	}
 	/**
 	 * Permette al responsabile di modificare gli orari scolastici:
@@ -48,7 +42,11 @@ public class Responsabile extends Utente {
 	     o.fine=nuovaOraFine;
 	     o.giorno=nuovoGiorno;
 	}
-	public ArrayList<SpostamentoLezione> visualizzaRichieste(){
+	/**
+	 * Visualizza le richieste di spostamento lezioni da parte dei docenti
+	 * @return spostamenti
+	 */
+	public List<SpostamentoLezione> visualizzaRichieste(){
 		return spostamenti;
 	}
 	/**
@@ -61,9 +59,9 @@ public class Responsabile extends Utente {
 		}
 		if (s.getStato() ==Stato.IN_ATTESA) {
             s.setStato(Stato.APPROVATA);
-            System.out.println("Lo spostamento" +s.getIdSpost() + " è stato approvato! ");
+            LOGGER.info("Lo spostamento" +s.getIdSpost() + " è stato approvato! ");
         } else {
-            System.out.println("Impossibile approvare: lo spostamento è già nello stato " + s.getStato());
+            LOGGER.severe("Impossibile approvare: lo spostamento è già nello stato " + s.getStato());
         }
     }
 	/**
@@ -73,11 +71,14 @@ public class Responsabile extends Utente {
 	public void riceviRichiesta(SpostamentoLezione s) {
 		if(s!=null) {
 			this.spostamenti.add(s);
-			System.out.println("Spostamento" + s.getIdSpost() + " ricevuto con successo.");
+			LOGGER.info("Spostamento" + s.getIdSpost() + " ricevuto con successo.");
 		}
 	}
+	/**
+	 * Visualizza se sono presenti conflitti negli spostamenti
+	 */
 	public void visualizzaConflitti() {
-        System.out.println("\n--- VERIFICA CONFLITTI ---");
+        LOGGER.info("\n--- VERIFICA CONFLITTI ---");
         boolean conflittiTrovati = false;
 
         // Confronta ogni richiesta con le successive per evitare doppioni
@@ -88,27 +89,31 @@ public class Responsabile extends Utente {
 
                 if (s1.vaInConflittoCon(s2)) {
                     conflittiTrovati = true;
-                    System.out.println("CONFLITTO RILEVATO nell'aula " + s1.getAula() + ":");
-                    System.out.println("  - Spostamento A: " + s1.getIdSpost() + " (" + s1.getNuovoGiorno() +s1.getOrarioIniziale()+ " -> " +s1.getOrarioFinale()+")");
-                    System.out.println("  - Spostamento B: " + s2.getIdSpost() + " (" + s2.getNuovoGiorno() +s2.getOrarioIniziale()+ " -> " +s2.getOrarioFinale()+")");
+                    LOGGER.severe("CONFLITTO RILEVATO nell'aula " + s1.getAula() + ":");
+                    LOGGER.info("  - Spostamento A: " + s1.getIdSpost() + " (" + s1.getNuovoGiorno() +s1.getOrarioIniziale()+ " -> " + s1.getNuovoGiorno() +s1.getOrarioFinale()+")");
+                    LOGGER.info("  - Spostamento B: " + s2.getIdSpost() + " (" + s2.getNuovoGiorno() +s2.getOrarioIniziale()+ " -> " + s2.getNuovoGiorno() +s2.getOrarioFinale()+")");
                 }
             }
         }
 
         if (!conflittiTrovati) {
-            System.out.println("Nessun conflitto rilevato tra le richieste.");
+            LOGGER.info("Nessun conflitto rilevato tra le richieste.");
         }
     }
+	/**
+	 * Il responsabile può rifiutare la richiesta di spostamento
+	 * @param s
+	 */
 	public void rifiutaRichiesta(SpostamentoLezione s) {
 		if(s==null) {
 			throw new IllegalArgumentException("Impossibile avere una richiesta nulla");
 		}
 		if(s.getStato()==Stato.IN_ATTESA) {
 			s.setStato(Stato.RIFIUTATA);
-			System.out.println("Lo spostamento"+s.getIdSpost()+"è stato rifiutato!");
+			LOGGER.info("Lo spostamento"+s.getIdSpost()+"è stato rifiutato!");
 		}
 		else {
-			System.out.println("Spostamento già rifiutato");
+			LOGGER.info("Spostamento già rifiutato");
 		}
 		
 	}
