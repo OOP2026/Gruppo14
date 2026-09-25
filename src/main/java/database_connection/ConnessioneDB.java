@@ -1,4 +1,4 @@
-package Database;
+package database_connection;
 import java.sql.*;
 /**
  * Classe di connessione al database tramite la libreria java.sql. Usa 3 elementi fondamentali per la connessione:
@@ -9,7 +9,7 @@ import java.sql.*;
 public class ConnessioneDB {
 	String url="jdbc:postgresql://localhost:5432/Progetto";
 	String user="postgres";
-	String password="Matteogen_005";
+	String password=System.getenv("DB_PASSWORD");
 	public static void main(String[]args) {
 		ConnessioneDB connessionePostgreSQL=new ConnessioneDB();
 		connessionePostgreSQL.connect();
