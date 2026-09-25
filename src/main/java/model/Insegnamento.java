@@ -7,25 +7,23 @@ private LocalDate dataInizio;
 private LocalDate dataFine;
 private boolean attivoManuale;
 private Docente d;
-private int CFU;
+private int cfu;
 ArrayList<Lezione> l=new ArrayList<>();
 /**
- * Costruttore della classe Insegnamento:
+ * Costruttore della classe Insegnamento
  * @param insegnamento
  * @param dataInizio
  * @param dataFine
+ * @param d
+ * @param CFU
  */
-/**
- * Si può aggiungere un flag booleano(attivoManuale) se un insegnamento può essere disattivato prima della sua data di fine naturale
- */
-	public Insegnamento(String insegnamento,LocalDate dataInizio,LocalDate dataFine,Docente d,int CFU) {
+	public Insegnamento(String insegnamento,LocalDate dataInizio,LocalDate dataFine,Docente d,int cfu) {
 		this.nomeIns = insegnamento;
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
         this.attivoManuale = true;
         this.d=d;
-        this.CFU=CFU;
-		// TODO Auto-generated constructor stub
+        this.cfu=cfu;
 	}
 	/**
 	 * Metodo isAttivo restituisce true se l'insegnamento è attivo e nel periodo di attività, false in caso contrario.
@@ -33,14 +31,14 @@ ArrayList<Lezione> l=new ArrayList<>();
 	 * @return inPeriodo
 	 */
 	public boolean isAttivo() {
-		LocalDate oggi = LocalDate.now();
+		LocalDate oggi = LocalDate.now(ZoneId.systemDefault());
         boolean inPeriodo = (oggi.isEqual(dataInizio) || oggi.isAfter(dataInizio)) &&
                             (oggi.isEqual(dataFine) || oggi.isBefore(dataFine));
                             
         return attivoManuale && inPeriodo;
 	}
 	/**
-	 *  Aggiunge una singola lezione in un insegnamento
+	 *  Aggiunge una lezione in un insegnamento
 	 * @param l
 	 */
     public void addLezione(Lezione l) {
@@ -58,7 +56,7 @@ ArrayList<Lezione> l=new ArrayList<>();
     }
 
     /**
-     *  Restituisce la lista (in capsula per sicurezza)
+     *  Restituisce la lista di lezioni di un insegnamento (in capsula per sicurezza)
      * @return l
      */
     public List<Lezione> getLezioni() {
@@ -76,7 +74,7 @@ ArrayList<Lezione> l=new ArrayList<>();
      * @return CFU
      */
     public int getCFU() {
-    	return CFU;
+    	return cfu;
     }
     /**
      * Restituisce il nome dell'insegnamento
@@ -88,7 +86,7 @@ ArrayList<Lezione> l=new ArrayList<>();
     @Override
 	public String toString() {
 		return "Insegnamento [nomeIns=" + nomeIns + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine
-				+ ", attivoManuale=" + attivoManuale + ", d=" + d + ", CFU=" + CFU + ", l=" + l + "]";
+				+ ", attivoManuale=" + attivoManuale + ", d=" + d + ", CFU=" + cfu + ", l=" + l + "]";
 	}
 }
 
