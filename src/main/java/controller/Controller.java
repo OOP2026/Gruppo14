@@ -1,6 +1,6 @@
 package controller;
 import java.time.*;
-import Progetto.*;
+import model.*;
 import GUI.*;
 import java.util.ArrayList;
 import java.util.List;
