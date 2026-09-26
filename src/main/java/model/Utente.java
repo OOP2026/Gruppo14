@@ -20,7 +20,6 @@ public class Utente {
 			this.email=email;
 			this.login=login;
 			this.password=password;
-		// TODO Auto-generated constructor stub
 	}
 		/**
 		 * Restituisce il nome dell'utente
@@ -60,9 +59,17 @@ public class Utente {
 		public boolean login(String email,String login,String password) {
 			return this.email.equals(email) && this.login.equals(login) && this.password.equals(password); 
 		}
+		/**
+		 * Ottiene il login(username) dell'utente
+		 * @return login
+		 */
 		public String getLogin() {
 			return login;
 		}
+		/**
+		 * Imposta un nuovo username all'utente
+		 * @param login
+		 */
 		public void setLogin(String login) {
 			this.login = login;
 		}
