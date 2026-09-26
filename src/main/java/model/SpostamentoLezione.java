@@ -2,27 +2,27 @@ package model;
 import java.time.*;
 public class SpostamentoLezione {
 	private String idSpostamento;
-	private LocalTime orarioIniziale;
-	private Lezione l;
+	private LocalTime nuovoOrarioIniziale;
 	private GiornoSettimana nuovoGiorno;
-	private LocalTime orarioFinale;
+	private LocalTime nuovoOrarioFinale;
 	private Stato stato;
 	private Aula aula;
+	private Lezione l;
 	/**
-	 * Costruttore della classe SpostamentoLezione:
-	 * @param id: usato per identificare ciascuno spostamento
+	 * 
+	 * @param id:identifica ciascuno spostamento
+	 * @param l
 	 * @param orarioIniziale
-	 * @param giornoIniziale
-	 * @param giornoProposto
-	 * @param orarioProposto
+	 * @param nuovoGiorno
+	 * @param nuovoOrarioFinale
 	 */
-	public SpostamentoLezione(String id,Lezione l,GiornoSettimana nuovoGiorno,LocalTime orarioIniziale,LocalTime orarioFinale,Stato stato) {
+	public SpostamentoLezione(String id,Lezione l,LocalTime orarioIniziale,GiornoSettimana nuovoGiorno,LocalTime nuovoOrarioFinale) {
 		this.idSpostamento=id;
 		this.l=l;
+		this.nuovoOrarioIniziale=orarioIniziale;
 		this.nuovoGiorno=nuovoGiorno;
-		this.orarioIniziale=orarioIniziale;
-		this.orarioFinale=orarioFinale;
-		this.stato=stato; 
+		this.nuovoOrarioFinale=nuovoOrarioFinale;
+		this.stato=Stato.IN_ATTESA; 
 		/**
 		 * Stato di default:IN_ATTESA
 		 */
@@ -41,13 +41,21 @@ public class SpostamentoLezione {
 	public void setStato(Stato stato) {
         this.stato = stato;
     }
-
-	public void setIdSpost(String idSpostamento){
-		this.idSpostamento=idSpostamento;
-	}
+	/**
+	 * Ottiene l'id dello spostamento
+	 * @return idSpostamento
+	 */
 	public String getIdSpost() {
 		return idSpostamento;
 	}
+	public void setIdSpost(String id) {
+		idSpostamento=id;
+	}
+	/**
+	 * Verifica se sono presenti conflitti negli spostamenti
+	 * @param altra
+	 * @return true o false
+	 */
 	public boolean vaInConflittoCon(SpostamentoLezione altra) {
         /**
          *  Se non riguardano la stessa aula, non c'è conflitto
@@ -61,7 +69,7 @@ public class SpostamentoLezione {
         /**
          *  Due intervalli temporali [A, B] e [C, D] si sovrappongono se A < D e C < B
          */
-        return this.orarioIniziale.isBefore(altra.getOrarioFinale()) && altra.getOrarioFinale().isBefore(this.orarioFinale);
+        return this.nuovoOrarioIniziale.isBefore(altra.getOrarioFinale()) && altra.getOrarioFinale().isBefore(this.nuovoOrarioFinale);
     }
 	/**
 	 * Restituisce l'aula per confrontare il conflitto tra due lezioni
@@ -70,44 +78,54 @@ public class SpostamentoLezione {
 	public Aula getAula() {
 		return aula;
 	}
-	public void setAula(Aula a){
-		this.aula=a;
+	
+	public void setAula(Aula aula) {
+		this.aula = aula;
 	}
 	/**
-	 * Restituisce l'orario prima dello spostamento della lezione
-	 * @return orarioIniziale
+	 * Restituisce il nuovo orario iniziale
+	 * @return nuovoOrarioIniziale
 	 */
 	public LocalTime getOrarioIniziale() {
-		return orarioIniziale;
-	}
-	public void setOrarioIniziale(LocalTime orarioIniziale){
-		this.orarioIniziale=orarioIniziale;
+		return nuovoOrarioIniziale;
 	}
 	/**
-	 * Restituisce l'orario proposto per lo spostamento
-	 * @return orarioProposto
+	 * Restituisce l'orario finale dello spostamento
+	 * @return nuovoOrarioFinale
 	 */
 	public LocalTime getOrarioFinale() {
-		return orarioFinale;
-	}
-	public void setOrarioFinale(LocalTime orarioFinale){
-		this.orarioFinale=orarioFinale;
+		return nuovoOrarioFinale;
 	}
 	/**
-	 * Restituisce il giorno prima dello spostamento lezione
-	 * @return giornoIniziale 
+	 * Restituisce il nuovo giorno per lo spostamento
+	 * @return nuovoGiorno
 	 */
 	public GiornoSettimana getNuovoGiorno() {
 		return nuovoGiorno;
 	}
-	
-	public Lezione getLezione(){
-		return l;
-	}
 	@Override
 	public String toString() {
-		return "SpostamentoLezione [idSpostamento=" + idSpostamento + ", orarioIniziale=" + orarioIniziale
-				+ ", nuovoGiorno=" + nuovoGiorno +  ",orarioProposto="
-				+ orarioFinale + ", stato=" + stato + ", aula=" + aula + "]";
+		return "SpostamentoLezione [idSpostamento=" + idSpostamento + ", orarioIniziale=" + nuovoOrarioIniziale
+				+ ", giornoIniziale=" + nuovoGiorno + ", giornoProposto=" + nuovoGiorno + ", orarioProposto="
+				+ nuovoOrarioFinale + ", stato=" + stato + ", aula=" + aula + "]";
+	}
+	/**
+	 * Ottiene la lezione inclusa nello spostamento
+	 * @return l
+	 */
+	public Lezione getLezione() {
+		return l;
+	}
+	public void setLezione(Lezione l) {
+		this.l=l;
+	}
+	public void setNuovoGiorno(GiornoSettimana nuovoGiorno) {
+		this.nuovoGiorno=nuovoGiorno;
+	}
+	public void setOraInizio(LocalTime oraInizio) {
+		this.nuovoOrarioIniziale=oraInizio;
+	}
+	public void setOraFine(LocalTime oraFine) {
+		this.nuovoOrarioFinale=oraFine;
 	}
 }
