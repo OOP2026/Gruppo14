@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"model","c":"AnnoCorso","l":"I","k":"0"},{"p":"model","c":"AnnoCorso","l":"II","k":"0"},{"p":"model","c":"AnnoCorso","l":"III","k":"0"},{"p":"model","c":"AnnoCorso","l":"valueOf(String)","u":"valueOf(java.lang.String)","k":"6"},{"p":"model","c":"AnnoCorso","l":"values()","k":"6"}];updateSearchResults();
