@@ -1,5 +1,6 @@
 package database_connection;
 import java.sql.*;
+import java.util.logging.Logger;
 /**
  * Classe di connessione al database tramite la libreria java.sql. Usa 3 elementi fondamentali per la connessione:
  * 1. URL del database: fornire ad un'applicazione un indirizzo di rete per recuperare e raggiungere informazioni in un database
@@ -10,7 +11,8 @@ public class ConnessioneDB {
 	String url="jdbc:postgresql://localhost:5432/Progetto";
 	String user="postgres";
 	String password=System.getenv("DB_PASSWORD");
-	public static void main(String[]args) {
+	private static final Logger LOGGER = Logger.getLogger(ConnessioneDB.class.getName());
+	public static void main(String[]args) {//NOSONAR
 		ConnessioneDB connessionePostgreSQL=new ConnessioneDB();
 		connessionePostgreSQL.connect();
 	}
@@ -19,16 +21,13 @@ public class ConnessioneDB {
 	 */
 private void connect() {
 	try(Connection con=DriverManager.getConnection(url,user,password)){
-		Class.forName("org.postgresql.Driver");
 		if(con!=null)
-			System.out.println("Connessione riuscita al database!");
+			LOGGER.info("Connessione riuscita al database!");
 		else
-			System.out.println("Connessione fallita");
-	}catch(ClassNotFoundException e) {
-		System.out.println("Driver non trovato"+e.getMessage());
+			LOGGER.severe("Connessione fallita");
 	}catch (SQLException e) {
-        System.out.println("Errore di connessione: " + e.getErrorCode());
-        System.out.println("Stato di connessione: " + e.getSQLState());
+        LOGGER.severe("Errore di connessione: " + e.getErrorCode());
+        LOGGER.info("Stato di connessione: " + e.getSQLState());
     }	
 	}
 }
