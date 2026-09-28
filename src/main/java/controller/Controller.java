@@ -1,7 +1,8 @@
 package controller;
 import java.time.*;
+
 import model.*;
-import GUI.*;
+
 import java.util.ArrayList;
 import java.util.List;
 public class Controller {
@@ -11,7 +12,8 @@ public class Controller {
 	     */
 		private List<Utente> utenti;
 	    private List<SpostamentoLezione> richiesteSpostamento;
-	    private List<Orario> orari;
+	    @SuppressWarnings("unused")
+		private List<Orario> orari;
 	    private Utente utenteLoggato;
 	    private Insegnamento i1;
 	    private ArrayList<Insegnamento>insegnamenti=new ArrayList<>();
@@ -20,7 +22,6 @@ public class Controller {
 	    private Docente d2;
 	    private Aula aula;
 	    private Responsabile r;
-	    private Orario o;
 	    private ArrayList<Lezione> l;
 	    /**
 	     * Costruttore controller
@@ -86,7 +87,7 @@ public class Controller {
 	     * Ritorna lista di insegnamenti
 	     * @return insegnamenti
 	     */
-	    public ArrayList<Insegnamento> getInsegnamenti(){
+	    public List<Insegnamento> getInsegnamenti(){
 	    	return insegnamenti;
 	    }
 	    /**
@@ -97,22 +98,23 @@ public class Controller {
 	     * @param oraFine
 	     * @param nomeAula
 	     */
-	    public void aggiungiLezione(Insegnamento insegnamento, String giorno, String oraInizio, String oraFine, String nomeAula) throws Exception {
+	    @SuppressWarnings("unused")
+	    public void aggiungiLezione(Insegnamento insegnamento, String giorno, String oraInizio, String oraFine, String nomeAula){
 	        
 	        // 1. Recupera il docente associato a questo insegnamento (se presente)
 	        Docente docente = insegnamento.getDocente(); 
 
 	        // 2. Crea l'oggetto Aula
-	        Aula aula = new Aula(nomeAula);
+	        Aula aula2 = new Aula(nomeAula);
 
 	        // 3. Istanzia la nuova Lezione
-	        Lezione nuovaLezione = new Lezione("N3546",GiornoSettimana.LUNEDI, LocalTime.of(8, 45), LocalTime.of(10, 30), i1, aula,r);
+	        Lezione nuovaLezione = new Lezione(GiornoSettimana.LUNEDI, LocalTime.of(8, 45), LocalTime.of(10, 30), i1, aula,r);
 
 	        this.l.add(nuovaLezione);
 
 	        // 6. Assegna la lezione all'orario dello studente/docente interessato
-	        if (utenteLoggato instanceof Studente) {
-	            ((Studente) utenteLoggato).visualizzaOrario();
+	        if (utenteLoggato instanceof Studente studente) {
+	            (studente).getOrario().aggiungiLezione(nuovaLezione);
 	        }
 	    }
 	    /**
@@ -121,14 +123,14 @@ public class Controller {
 	    private void popolaDatiIniziali() {
 	    	Studente s1=new Studente("Matteo","Gentile","mat.gentile@studenti.unina.it","mgentile_005","matt005","N86005554",AnnoCorso.I,"Informatica");
 	    	this.utenti.add(s1);
-	    	Lezione l1=new Lezione("S55679",GiornoSettimana.LUNEDI,LocalTime.of(8, 45),LocalTime.of(10, 30),i1,aula,r);
-	    	Lezione l2=new Lezione("R2345R",GiornoSettimana.MERCOLEDI,LocalTime.of(14, 0),LocalTime.of(16, 0),i2,aula,r);
-	    	Orario orarioMatteo=new Orario("1344E2354",AnnoCorso.I);
+	    	Lezione l1=new Lezione(GiornoSettimana.LUNEDI,LocalTime.of(8, 45),LocalTime.of(10, 30),i1,aula,r);
+	    	Lezione l2=new Lezione(GiornoSettimana.MERCOLEDI,LocalTime.of(14, 0),LocalTime.of(16, 0),i2,aula,r);
+	    	Orario orarioMatteo=new Orario();
 	    	orarioMatteo.aggiungiLezione(l1);
 	    	orarioMatteo.aggiungiLezione(l2);
 	    	insegnamenti.add(i1);
 	    	insegnamenti.add(i2);
-	    	SpostamentoLezione r1=new SpostamentoLezione("N5430",l1,GiornoSettimana.MARTEDI,LocalTime.of(15, 0),LocalTime.of(17, 0));
+	    	SpostamentoLezione r1=new SpostamentoLezione("N5430",l1,LocalTime.of(15, 0),GiornoSettimana.MARTEDI,LocalTime.of(17, 0));
 	    	richiesteSpostamento.add(r1);
 	    	s1.setOrario(orarioMatteo);
 	    	
@@ -140,7 +142,7 @@ public class Controller {
 	     * @param pass
 	     * @return true o false, corrispondenti ad autenticazione riuscita o fallita
 	     */
-	public boolean Login(String email, String login, String pass) {
+	public boolean login(String email, String login, String pass) {
 		for (Utente u : utenti) {
             // Nota: in un'applicazione reale usaresti getter, qui si simula la verifica
             if (u.login(email, login ,pass )) { 
@@ -156,7 +158,7 @@ public class Controller {
 	 * @param nuovoStato
 	 * @throws Exception
 	 */
-	public void aggiornaStatoSpostamento(String idRichiesta, Stato nuovoStato) throws Exception {
+	public void aggiornaStatoSpostamento(String idRichiesta, Stato nuovoStato) throws RichiestaNonTrovataException {
 		SpostamentoLezione richiestaTrovata = null;
 
         // 1. Cerca la richiesta nella lista per ID
@@ -168,20 +170,19 @@ public class Controller {
         }
 
         if (richiestaTrovata == null) {
-            throw new Exception("Richiesta di spostamento con ID " + idRichiesta + " non trovata.");
+            throw new RichiestaNonTrovataException("Richiesta di spostamento con ID " + idRichiesta + " non trovata.");
         }
 
         // 2. Se stai usando la connessione JDBC al database PostgreSQL:
         // Qui aggiorni il record su DB. Se il trigger 'blocco_modifica_spostamento'
         // rileva che era già APPROVATO/RIFIUTATO, o se ci sono conflitti d'orario, 
         // verrà sollevata un'eccezione che blocca l'operazione.
-        // spostamentoDAO.updateStato(idRichiesta, nuovoStato);
 
         // 3. Aggiorna lo stato dell'oggetto in memoria
         richiestaTrovata.setStato(nuovoStato);
 
         // 4. Se la richiesta viene APPROVATA, aggiorna la lezione corrispondente con i nuovi dati
-        if ("APPROVATO".equals(nuovoStato)) {
+        if (Stato.APPROVATA.equals(nuovoStato)) {
             Lezione lezioneOriginale = richiestaTrovata.getLezione();
             if (lezioneOriginale != null) {
                 lezioneOriginale.setGiorno(richiestaTrovata.getNuovoGiorno());

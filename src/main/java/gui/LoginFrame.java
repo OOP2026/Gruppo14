@@ -59,7 +59,7 @@ public class LoginFrame extends JFrame {
         	    String login = txtLogin.getText().trim();
 
         	    // Chiamata al Controller
-        	    if (controller.Login(email, login, pass)) {
+        	    if (controller.login(email, login, pass)) {
         	        JOptionPane.showMessageDialog(LoginFrame.this, "Login effettuato con successo!");
         	        
         	        // Apri la dashboard principale e chiudi il login
