@@ -1,13 +1,20 @@
-package GUI;
+package gui;
+
+import javax.swing.*;
 
 import controller.Controller;
-import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.GridBagConstraints;
+@SuppressWarnings("unused")
 public class LoginFrame extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel labelEmail;
     private JTextField txtEmail;
     private JLabel labelPassword;
@@ -17,12 +24,14 @@ public class LoginFrame extends JFrame {
     private JButton btnLogin;
     private JPanel mainPanel;
 
-    private Controller controller; // Riferimento al controller
+    @SuppressWarnings("unused")
+	private transient Controller controller; // Riferimento al controller
 /**
  * Costruttore della classe LoginFrame usato per visualizzare la finestra di autenticazione al sistema degli orari e lezioni
  * @param controller
  */
-    public LoginFrame(Controller controller) {
+    @SuppressWarnings("unused")
+	public LoginFrame(Controller controller) {
         this.controller = controller;
         mainPanel=new JPanel(new GridBagLayout());
         setContentPane(mainPanel);
@@ -38,32 +47,28 @@ public class LoginFrame extends JFrame {
         txtLogin=new JTextField(50);
         setTitle("Login Sistema Orari");
         setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         /**
          *  Listener del pulsante Login
          */
-        btnLogin.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String email = new String(txtEmail.getText()).trim();
-                String pass = new String(txtPassword.getPassword()).trim();
-                String login=new String(txtLogin.getText()).trim();
+        btnLogin.addActionListener(e->{
+        	    String email = txtEmail.getText().trim();
+        	    String pass = new String(txtPassword.getPassword()).trim();
+        	    String login = txtLogin.getText().trim();
 
-                // Chiamata al Controller
-                if (controller.Login(email, login,pass)) {
-                    JOptionPane.showMessageDialog(LoginFrame.this, "Login effettuato con successo!");
-                    
-                    // Apri la dashboard principale e chiudi il login
-                    // new DashboardFrame(controller).setVisible(true);
-                    new DashBoardFrame(controller).setVisible(true);
-                    dispose();
-                } else {
-                    JOptionPane.showMessageDialog(LoginFrame.this, "Credenziali errate!", "Errore", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
+        	    // Chiamata al Controller
+        	    if (controller.Login(email, login, pass)) {
+        	        JOptionPane.showMessageDialog(LoginFrame.this, "Login effettuato con successo!");
+        	        
+        	        // Apri la dashboard principale e chiudi il login
+        	        new DashBoardFrame(controller).setVisible(true);
+        	        dispose();
+        	    } else {
+        	        JOptionPane.showMessageDialog(LoginFrame.this, "Credenziali errate!", "Errore", JOptionPane.ERROR_MESSAGE);
+        	    }
+        	});
         /**
          * GBC Serve a posizionare, in una griglia, le componenti GUI necessarie del sistema
          */

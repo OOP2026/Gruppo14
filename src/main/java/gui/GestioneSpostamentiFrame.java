@@ -1,29 +1,35 @@
-package GUI;
+package gui;
 
 import controller.Controller;
 import model.*;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 /**
- * La classe GestioneSpostamentiFrame è usata per gestire gli spostamenti delle lezioni, settando i loro stati a uno dei 3 valori:[APPROVATO,RIFIUTATO,IN_ATTESA]
+ *classe GestioneSpostamentiFrame è usata per gestire gli spostamenti delle lezioni, settando i loro stati a uno dei 3 valori:[APPROVATO,RIFIUTATO,IN_ATTESA]
  */
 public class GestioneSpostamentiFrame extends JFrame {
 
-    private Controller controller;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private transient Controller controller;
     private JTable tabellaSpostamenti;
     private DefaultTableModel tableModel;
 /**
  * Costruttore della classe GestioneSpostamentiFrame
  * @param controller
  */
-    public GestioneSpostamentiFrame(Controller controller) {
+    @SuppressWarnings("unused")
+	public GestioneSpostamentiFrame(Controller controller) {
         this.controller = controller;
 
         setTitle("Gestione Richieste Spostamento");
         setSize(650, 350);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
 
         // Tabella con le richieste

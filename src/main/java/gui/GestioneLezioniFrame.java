@@ -1,13 +1,18 @@
-package GUI;
+package gui;
 
 import controller.Controller;
 import model.*;
+
 import java.awt.*;
 import javax.swing.*;
 
 public class GestioneLezioniFrame extends JFrame {
 
-    private Controller controller2;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private transient Controller controller;
     private JComboBox<Insegnamento> comboInsegnamento;
     private JComboBox<String> comboGiorno;
     private JTextField txtOraInizio;
@@ -17,13 +22,14 @@ public class GestioneLezioniFrame extends JFrame {
      * Costruttore della classe GestioneLezioniFrame, finestra per la gestione delle lezioni
      * @param controller
      */
-    public GestioneLezioniFrame(Controller controller) {
-        this.controller2 = controller;
+    @SuppressWarnings("unused")
+	public GestioneLezioniFrame(Controller controller) {
+        this.controller = controller;
 
         setTitle("Gestione Lezioni - Aggiungi Lezione");
         setSize(450, 300);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setLayout(new GridLayout(6, 2, 10, 10));
 
         // Form di inserimento
@@ -83,7 +89,7 @@ public class GestioneLezioniFrame extends JFrame {
 
             // Richiesta al controller per l'inserimento
             // Se il trigger sul DB trova conflitti d'orario, l'eccezione verrà catturata qui
-            controller2.aggiungiLezione(ins, giorno, oraInizio, oraFine, nomeAula);
+            controller.aggiungiLezione(ins, giorno, oraInizio, oraFine, nomeAula);
 
             JOptionPane.showMessageDialog(this, "Lezione aggiunta con successo!");
             dispose();

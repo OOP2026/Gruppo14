@@ -1,22 +1,29 @@
-package GUI;
+package gui;
 
 import controller.Controller;
-import Progetto.*;
+import model.*;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class OrarioFrame extends JFrame {
 
-    private Controller controller;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unused")
+	private transient Controller controller;
 
-    public OrarioFrame(Controller controller) {
+    @SuppressWarnings("unused")
+	public OrarioFrame(Controller controller) {
         this.controller = controller;
 
         setTitle("Orario Lezioni");
         setSize(700, 400);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Chiude solo questa finestra, non l'intera app
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); // Chiude solo questa finestra, non l'intera app
         setLayout(new BorderLayout());
 
         // Intestazioni della tabella
@@ -33,8 +40,8 @@ public class OrarioFrame extends JFrame {
         // Recupera l'orario tramite il controller e popola le righe
         // (Adatta i getter in base alla tua classe Orario / Lezione)
         Utente u = controller.getUtenteLoggato();
-        if (u instanceof Studente) {
-            Orario orario = controller.getOrarioStudente((Studente) u);
+        if (u instanceof Studente studente) {
+            Orario orario = controller.getOrarioStudente(studente);
             if (orario != null && orario.getLezioni() != null) {
                 for (Lezione l : orario.getLezioni()) {
                     Object[] riga = {

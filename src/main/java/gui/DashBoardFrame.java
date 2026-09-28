@@ -1,19 +1,26 @@
-package GUI;
+package gui;
 
 import controller.Controller;
 import model.*;
+
 import java.awt.*;
 import javax.swing.*;
 
 public class DashBoardFrame extends JFrame {
 
-    private Controller controller;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unused")
+	private transient Controller controller;
 /**
  * Costruttore della classe DashBoardFrame che, come LoginFrame, estendono la loro superclasse JFrame contenente tutte le caratteristiche di una classe
  * come ridimensionamento,layout,ecc...
  * @param controller
  */
-    public DashBoardFrame(Controller controller) {
+    @SuppressWarnings("unused")
+	public DashBoardFrame(Controller controller) {
         this.controller = controller;
         JButton btnGestisciLezioni = new JButton("Gestisci Lezioni");
         JButton btnGestisciSpostamenti = new JButton("Gestisci Spostamenti");
@@ -36,7 +43,7 @@ public class DashBoardFrame extends JFrame {
         // Configurazioni base del Frame
         setTitle("Dashboard - Sistema Gestione Orari");
         setSize(500, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout(10, 10));
 
@@ -56,7 +63,6 @@ public class DashBoardFrame extends JFrame {
         // Pulsante comune a tutti gli utenti
         JButton btnVisualizzaOrario = new JButton("Visualizza Orario Lezioni");
         btnVisualizzaOrario.addActionListener(e -> {
-            // TODO: new OrarioFrame(controller).setVisible(true);
         	new OrarioFrame(controller).setVisible(true);
             JOptionPane.showMessageDialog(this, "Apertura orario in corso...");
         });
@@ -66,14 +72,12 @@ public class DashBoardFrame extends JFrame {
         if (utente instanceof Docente) {
             JButton btnRichiediSpostamento = new JButton("Richiedi Spostamento Lezione");
             btnRichiediSpostamento.addActionListener(e -> {
-                // TODO: new RichiestaSpostamentoFrame(controller).setVisible(true);
             });
             menuPanel.add(btnRichiediSpostamento);
 
         } else if (utente instanceof Responsabile) {
             JButton btnGestisciRichieste = new JButton("Gestisci Richieste Pendenti");
             btnGestisciRichieste.addActionListener(e -> {
-                // TODO: new ApprovazioneSpostamentiFrame(controller).setVisible(true);
             });
             menuPanel.add(btnGestisciRichieste);
         }
