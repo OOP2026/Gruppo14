@@ -24,13 +24,13 @@ public class LoginFrame extends JFrame {
     private JButton btnLogin;
     private JPanel mainPanel;
 
-    @SuppressWarnings("unused")
+    
 	private transient Controller controller; // Riferimento al controller
 /**
  * Costruttore della classe LoginFrame usato per visualizzare la finestra di autenticazione al sistema degli orari e lezioni
  * @param controller
  */
-    @SuppressWarnings("unused")
+    
 	public LoginFrame(Controller controller) {
         this.controller = controller;
         mainPanel=new JPanel(new GridBagLayout());
