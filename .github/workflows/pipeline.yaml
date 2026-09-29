@@ -58,7 +58,7 @@ jobs:
           fail-on-error: 'false'
 
       - name: Publish Code Coverage Report
-        uses: madrapps/jacoco-report@4671887311186711d9ed3608d4b3b12759e669e4
+        uses: madrapps/jacoco-report@94dfcf8dae9680be2cfa714ca37fb37790bd7663
         if: success() || failure()
         with:
           paths: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
